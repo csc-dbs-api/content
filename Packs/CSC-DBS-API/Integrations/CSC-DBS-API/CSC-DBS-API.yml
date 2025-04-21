@@ -1,0 +1,1409 @@
+commonfields:
+  id: DomainManager API
+  version: -1
+name: DomainManager API
+display: DomainManager API
+category: Utilities
+description: API Documentation
+configuration:
+- name: url
+  display: Server URL (e.g. https://apis.cscglobal.com/dbs/api/v2)
+  defaultvalue: https://apis.cscglobal.com/dbs/api/v2
+  type: 0
+  required: true
+- displaypassword: Token
+  additionalinfo: The token to use for connection.
+  name: token
+  required: true
+  hiddenusername: true
+  type: 9
+- displaypassword: API Key
+  additionalinfo: The API Key to use for connection.
+  name: api_key
+  required: true
+  hiddenusername: true
+  type: 9
+- name: insecure
+  display: Trust any certificate (not secure)
+  defaultvalue: 'false'
+  type: 8
+  required: false
+- name: proxy
+  display: Use system proxy settings
+  defaultvalue: 'false'
+  type: 8
+  required: false
+script:
+  script: ''
+  type: python
+  subtype: python3
+  dockerimage: demisto/python3:3.12.8.1983910
+  isfetch: false
+  commands:
+  - name: csc-dbs-api-activateurlforwardingnode
+    description: Activate URL forwarding node
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingActivateResult.link
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingActivateResult.status
+      description: ''
+  - name: csc-dbs-api-addonedsrecordtoadomain
+    description: Add one DS record to a domain
+  - name: csc-dbs-api-addurlforwardingnode
+    description: Add URL forwarding node
+    outputs:
+    - type: Unknown
+      contextPath: CSC-DBS-API.UrlForwardingResult.result.price
+      description: price of service
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingResult.result.service
+      description: ''
+  - name: csc-dbs-api-cancelazoneeditwithafailedstatus
+    description: Cancel a zone edit with a 'FAILED' status
+    arguments:
+    - name: editID
+      description: Zone Edit ID
+      required: true
+      isArray: false
+  - name: csc-dbs-api-checkregistrationavailabilityforoneormoredomainnames
+    description: Check registration availability for one or more domain names
+    arguments:
+    - name: qualifiedDomainNames
+      description: Provide a maximum of 50 fully qualified domain names delimited by a comma (,)
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.RegistrationAvailabilityResult.results.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.RegistrationAvailabilityResult.results.result.code
+      description: Availability result
+    - type: String
+      contextPath: CSC-DBS-API.RegistrationAvailabilityResult.results.result.message
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.RegistrationAvailabilityResult.results.basePrice.price
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.RegistrationAvailabilityResult.results.basePrice.currency
+      description: ''
+  - name: csc-dbs-api-deletealldsrecordsforthegivendomainname
+    description: Delete all DS records for the given domain name
+  - name: csc-dbs-api-deleteasingledsrecordforadomain
+    description: Delete a single DS record for a domain
+  - name: csc-dbs-api-deleteurlforwardingbyqualifieddomainname
+    description: Delete URL forwarding by qualified domain name
+    arguments:
+    - name: qualifiedDomainName
+      description: Qualified domain name
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingDeleteAllResult.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingDeleteAllResult.message
+      description: ''
+  - name: csc-dbs-api-deleteurlforwardingbyqualifieddomainnameandnodename
+    description: Delete URL forwarding by qualified domain name and node name
+    arguments:
+    - name: qualifiedDomainName
+      description: Qualified domain name
+      required: true
+      isArray: false
+    - name: nodeName
+      description: Node name to be deleted
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingDeleteResult.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingDeleteResult.message
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingDeleteResult.nodeRemoved
+      description: ''
+  - name: csc-dbs-api-getalldsrecordsforaqualifieddomainname
+    description: Get all DS records for a qualified domain name
+    arguments:
+    - name: qualifiedDomainName
+      description: Qualified domain name
+      required: true
+      isArray: false
+  - name: csc-dbs-api-getasinglezoneeditbyitsuuid
+    description: Get a single zone edit by its UUID
+    arguments:
+    - name: editID
+      description: A zone edit's UUID
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.zoneName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.zoneId
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.modifiedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.requestedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ZoneEdit.source
+      description: ''
+  - name: csc-dbs-api-getbusinessunitdata
+    description: Get business unit data
+    arguments:
+    - name: filter_
+      description: 'Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the business unit.  - accountName  - accountNumber  - businessUnitName  - usage  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (") or a backslash (\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding "filter=" /summary  blockquote    details  summary Find all business units with a businessUnitName of TEST BU /summary  blockquote   ``` businessUnitName=="TEST BU" ```   /blockquote   /details    details  summary Find all business units with a businessUnitName like TEST /summary  blockquote   ``` businessUnitName=like="TEST " ```   /blockquote   /details     details  summary Find all business units with a usage of DOMAIN and an accountNumber of 123456 /summary  blockquote   ``` usage=="DOMAIN";accountNumber=="123456" ```   /blockquote   /details     details  summary Find all business units with a usage of DOMAIN or RELATED_SERVICES /summary  blockquote   ``` usage=in=("DOMAIN","RELATED_SERVICES") ```   /blockquote   /details     /blockquote   /details   --- '
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.PagedBusinessUnitResponse.businessUnits.businessUnitName
+      description: ''
+  - name: csc-dbs-api-getbusinessunitdatabybusinessunitname
+    description: Get business unit data by business unit name
+    arguments:
+    - name: businessUnitName
+      description: Business unit name
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.BusinessUnit.businessUnitName
+      description: ''
+  - name: csc-dbs-api-getcertificatebyuuid
+    description: Get certificate by UUID
+    arguments:
+    - name: uuid
+      description: The UUID of the order. Returned as 'uuid' in the response.
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.uuid
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.commonName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.effectiveDate
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.TlsOrderResponse.isRenewed
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.expirationDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.businessUnit
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.orderedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.orderDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.serverSoftware
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.certificate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.customFields.name
+      description: Name of the custom field as defined in Domain Manager
+    - type: String
+      contextPath: CSC-DBS-API.TlsOrderResponse.customFields.value
+      description: ''
+  - name: csc-dbs-api-getcustomfieldsforthisaccount
+    description: Get custom fields for this account
+    arguments:
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.AccountCustomFields.customFields.label
+      description: Name of the custom field as defined in the account
+    - type: Boolean
+      contextPath: CSC-DBS-API.AccountCustomFields.customFields.mandatory
+      description: Is this a required field to include with orders?
+    - type: Boolean
+      contextPath: CSC-DBS-API.AccountCustomFields.customFields.includedOnInvoice
+      description: Is a required field to be included on invoicing?
+  - name: csc-dbs-api-getdomainconfigurationinformationforowneddomainswithoptionalfiltering
+    description: Get domain configuration information for owned domains with optional filtering
+    arguments:
+    - name: filter_
+      description: "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the domain.  - domain  - domainLabel  - domainStatusCode  - dnsHostingType  - extension  - tld  - country  - adminEmail  - adminName  - adminOrg  - regEmail  - regName  - regOrg  - techEmail  - techName  - techOrg  - accountNumber  - accountName  - businessUnit  - dnsTraffic12moAve  - hasCscUrlf  - hasDkim  - hasDnssecDs  - hasSpf  - hasWww  - isGtld  - isLive  - isLiveType  - isMultilockEligible  - isVital  - multiLocked  - numLiveMx  - numRootA  - numRootTxt  - numSslNetcraft  - numWwwA  - numWwwCname  - registryExpiryDate  - rootHttpCode  - rootHttpUrl  - rootIsUrlf  - serverDeleteProhibited  - serverTransferProhibited  - serverUpdateProhibited  - urlfTraffic12moAve  - valueRootA  - valueRootMx  - valueRootTxt  - valueWwwA  - valueWwwCname  - wwwHttpCode  - wwwHttpUrl  - wwwIsUrlf  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find configuration for the domain example.com /summary  blockquote   ``` domain==\"example.com\" ```   /blockquote   /details    details  summary Find all domains with a domainLabel like example /summary  blockquote   ``` domainLabel=like=\"example \" ```   /blockquote   /details     details  summary Find all domains with a registryExpiryDate greater than Jan 05 2020 /summary  blockquote   ``` registryExpiryDate=gt=\"2020-01-05\" ```   /blockquote   /details    details  summary Find all domains with an accountNumber of 1234567 or 0987654 /summary  blockquote   ``` accountNumber=in=(1234567, 0987654) ```   /blockquote   /details     details  summary Find all domains with a valueRootA of 165.160.13.20 or 165.160.15.25 and an extension of 'com' /summary  blockquote   ``` valueRootA=in=(\"165.160.13.20\", \"165.160.15.25\");extension==\"com\" ```   /blockquote   /details     details  summary Find all domains where isVital is true and either multiLocked is false or isMultilockEligible is false /summary  blockquote   ``` isVital==true;multiLocked==false,isMultilockEligible=..."
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.meta.numResults
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.meta.pages
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.domain
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.domainLabel
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.domainStatusCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.dnsHostingType
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.extension
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.tld
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.country
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.adminEmail
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.adminName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.adminOrg
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.regEmail
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.regName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.regOrg
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.techEmail
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.techName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.techOrg
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.accounts.accountNumber
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.accounts.accountName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.businessUnit
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.dnsData.dnsName
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.dnsTraffic12moAve
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasCscUrlf
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasDkim
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasDmarc
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasDnssecDs
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasSpf
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.hasWww
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.isGtld
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.isLive
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.isLiveType
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.isMultilockEligible
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.isVital
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.multiLocked
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numLiveMx
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numRootA
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numRootTxt
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numSslNetcraft
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numWwwA
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.numWwwCname
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.registryExpiryDate
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.rootHttpCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.rootHttpUrl
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.rootIsUrlf
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.serverDeleteProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.serverTransferProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.serverUpdateProhibited
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.urlfTraffic12moAve
+      description: ''
+    - type: Unknown
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.wwwHttpeCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.wwwHttpUrl
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.configurations.wwwIsUrlf
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.links.self
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.ConfigurationCallSuccess.links.next
+      description: ''
+  - name: csc-dbs-api-getdomaindatabyqualifieddomainname
+    description: Get domain data by qualified domain name
+    arguments:
+    - name: qualifiedDomainName
+      description: Qualified domain name
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.Domain.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.domain
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.idn
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.extension
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.newGtld
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.managedStatus
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.registrationDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.registryExpiryDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.paidThroughDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.countryCode
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.serverDeleteProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.serverTransferProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.serverUpdateProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.whoisPrivacy
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.localAgent
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.dnssecActivated
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.Domain.criticalDomain
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.businessUnit
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.brandName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.idnReferenceName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.customFields.name
+      description: Name of the custom field as defined in Domain Manager
+    - type: String
+      contextPath: CSC-DBS-API.Domain.customFields.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.contactType
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.firstName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.lastName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.organization
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.street1
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.street2
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.city
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.stateProvince
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.country
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.postalCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.email
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.phone
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.phoneExtn
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.whoisContacts.fax
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.lastModifiedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.lastModifiedReason
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Domain.lastModifiedDescription
+      description: ''
+  - name: csc-dbs-api-getdomainportfoliodata
+    description: Get domain portfolio data
+    arguments:
+    - name: filter_
+      description: "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the domain.  - accountName  - accountNumber  -  andName  - businessUnit  - city  - country  - countryCode  - criticalDomain  - dnssecActivated  - dnsType  - domain  - email  - extension  - fax  - firstName  - idnReferenceName  - lastModifiedDate  - lastModifiedDescription  - lastModifiedReason  - lastName  - localAgent  - managedStatus  - nameServers  - newGtld  - organization  - paidThroughDate  - phone  - phoneExtn  - postalCode  - qualifiedDomainName  - redirectType  - registrationDate  - registryExpiryDate  - serverDeleteProhibited  - serverTransferProhibited  - serverUpdateProhibited  - stateProvince  - street1  - street2  - urlForwarding  - whoisPrivacy  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all domains with a qualifiedDomainName of example.com /summary  blockquote   ``` qualifiedDomainName==\"example.com\" ```   /blockquote   /details    details  summary Find all domains with a qualifiedDomainName like example /summary  blockquote   ``` qualifiedDomainName=like=\"example\\ \" ```   /blockquote   /details     details  summary Find all domains with a registrationDate greater than Jan 05 2010 /summary  blockquote   ``` registrationDate=gt=\"05-JAN-2010\" ```   /blockquote   /details    details  summary Find all domains with a nameserver of dns1.mydns.com and an extension of 'com' /summary  blockquote   ``` nameservers==\"dns1.mydns.com\";extension==\"com\" ```   /blockquote   /details     details  summary Find all domains with a nameserver of dns1.mydns.com or dns2.mydns.com /summary  blockquote   ``` nameservers=in=(\"dns1.mydns.com\",\"dns2.mydns.com\") ```   /blockquote   /details     details  summary Find all domains with a WHOIS contact first name of Tom OR a last name of Smith /summary  blockquote   ``` firstName==\"Tom\",lastName==\"Smith\"&sort=qualifiedDomainName,asc ```   /blockquote   /details     details  summary Find all domains by business unit name Foo & Bar..."
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.domain
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.idn
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.extension
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.newGtld
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.managedStatus
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.registrationDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.registryExpiryDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.paidThroughDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.countryCode
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.serverDeleteProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.serverTransferProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.serverUpdateProhibited
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisPrivacy
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.localAgent
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.dnssecActivated
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.criticalDomain
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.businessUnit
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.brandName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.idnReferenceName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.customFields.name
+      description: Name of the custom field as defined in Domain Manager
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.customFields.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.contactType
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.firstName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.lastName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.organization
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.street1
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.street2
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.city
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.stateProvince
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.country
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.postalCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.email
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.phone
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.phoneExtn
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.whoisContacts.fax
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.lastModifiedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.lastModifiedReason
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedDomainResponse.domains.lastModifiedDescription
+      description: ''
+  - name: csc-dbs-api-getoneormorecertificates
+    description: Get one or more certificates
+    arguments:
+    - name: filter_
+      description: "Filters can be applied to your request to limit the type of data that you receive. When filter is not given the API will fetch certificates with status (ACTIVE, PENDING, IMPORTED) for the accessible business units.  ### Selectors  Selectors can be used to filter by specific properties on the security event.  - certificateTypeId  - name  - expirationDate  - effectiveDate  - status  - uuid  ---  ### ExpirationDate, EffectiveDate  The 'expirationDate' and the 'effectiveDate' selectors must have the following format: yyyy/MM/dd  ---  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like Query               |  ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |  ---  ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all cetificates with status ACTIVE /summary  blockquote   ``` status==ACTIVE ```   /blockquote   /details    details  summary Find all certificates between two dates /summary  blockquote   ``` expirationDate=le=2019/09/25;expirationDate=ge=2019/07/04 ```   /blockquote   /details    details  summary Find all certificate orders that have expiry date after August 25, 2019 /summary  blockquote   ``` expirationDate=gt=2019/08/25;status==ACTIVE ```   /blockquote   /details    /blockquote   /details   --- "
+      required: false
+      isArray: false
+    outputs:
+    - type: Number
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.meta.numResults
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.uuid
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.commonName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.effectiveDate
+      description: ''
+    - type: Boolean
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.isRenewed
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.expirationDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.businessUnit
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.orderedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.orderDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.serverSoftware
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.certificate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.customFields.name
+      description: Name of the custom field as defined in Domain Manager
+    - type: String
+      contextPath: CSC-DBS-API.MultiTlsRetrieveResponse.results.customFields.value
+      description: ''
+  - name: csc-dbs-api-getoneormoreorders
+    description: Get one or more orders
+    arguments:
+    - name: filter_
+      description: " Filters can be applied to your request to limit the type of data that you receive.  ### Selectors  Selectors can be used to filter by specific properties on the order.  - orderType  - qualifiedDomainName  - raisedDate  - uuid  ---  ### Raised Date  The 'raised date' selector must have the following format: yyyy/MM/dd  ---  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like Query               |  ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |  ---  ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all orders of type MULTILOCK /summary  blockquote   ``` orderType==MULTILOCK ```   /blockquote   /details    details  summary Find all orders between two dates /summary  blockquote   ``` raisedDate=le=2019/09/25;raisedDate=ge=2019/07/04 ```   /blockquote   /details    details  summary Find all REGISTRATION orders that were raised after August 25, 2019 /summary  blockquote   ``` raisedDate=gt=2019/08/25;orderType==REGISTRATION ```   /blockquote   /details     /blockquote   /details   --- "
+      required: false
+      isArray: false
+    outputs:
+    - type: Number
+      contextPath: CSC-DBS-API.MultiOrderResponse.meta.numResults
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.accountName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.accountNumber
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.raisedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.raisedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.MultiOrderResponse.ordersList.uuid
+      description: ''
+  - name: csc-dbs-api-getoneormoresecurityevents
+    description: Get one or more security events
+    arguments:
+    - name: filter_
+      description: " Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the security event.  - eventDate  - eventType  - id  ---  ### Event Date  If the 'event date' selector is provided it must be an ISO-standard timestamp. (ex. 2019-11-17T22:35:32). The timezone needs to be UTC for accurate results.  ---  ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                |   ---   ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---   ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all events of type DNS_CHANGE_REQUESTED /summary  blockquote   ``` eventType==DNS_CHANGE_REQUESTED ```   /blockquote   /details    details  summary Find all events between two timestamps /summary  blockquote   ``` eventdate=le=2019-09-25T00:00:00;eventDate=ge=2019-07-04T00:00:00 ```   /blockquote   /details     details  summary Find all LOGIN events that occurred after August 25, 2019 /summary  blockquote   ``` eventdate=gt=2019-08-25T00:00:00;eventType==LOGIN ```   /blockquote   /details     /blockquote   /details   --- "
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.PagedEventResponse.events.id
+      description: ''
+  - name: csc-dbs-api-getoneormorezoneedits
+    description: Get one or more zone edits
+    arguments:
+    - name: filter_
+      description: "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the zone or zone edit.  - zoneName  - modifiedDate  - status  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all zone edits for the zone of example.com /summary  blockquote   ``` zoneName==\"example.com\" ```   /blockquote   /details    details  summary Find all zone edits for a zone with a name like example /summary  blockquote   ``` zoneName=like=\"\\ example\\ \" ```   /blockquote   /details     details  summary Find all zone edits with a modified date of March 31st, 2020 /summary  blockquote   ``` modifiedDate==31-Mar-2020 ```   /blockquote   /details    details  summary Find all zone edits with a modified date before March 31st, 2020 and with a status of 'CANCELED' /summary  blockquote   ``` modifiedDate=lt=31-Mar-2020;status==canceled ```   /blockquote   /details     /blockquote   /details   --- "
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.zoneName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.zoneId
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.modifiedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.requestedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneEditResponse.zoneEdits.source
+      description: ''
+  - name: csc-dbs-api-getordersbytheiruuid
+    description: Get orders by their UUID
+    arguments:
+    - name: orderUUID
+      description: The UUID of the order. Returned as 'uuid' in the response.
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.Order.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Order.accountName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Order.accountNumber
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Order.raisedBy
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Order.raisedDate
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Order.uuid
+      description: ''
+  - name: csc-dbs-api-getsecurityeventsbyid
+    description: Get security events by ID
+    arguments:
+    - name: eventID
+      description: Event ID
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.SecurityEvent.id
+      description: ''
+  - name: csc-dbs-api-getthecurrentstatusofazoneedit
+    description: Get the current status of a zone edit
+    arguments:
+    - name: editID
+      description: Zone Edit ID
+      required: true
+      isArray: false
+  - name: csc-dbs-api-geturlforwardingdatabyqualifieddomainname
+    description: Get URL forwarding data by qualified domain name
+    arguments:
+    - name: qualifiedDomainName
+      description: Qualified domain name
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingRecords.urlForwardingRecords.node
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingRecords.urlForwardingRecords.domainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingRecords.urlForwardingRecords.sourceUrl
+      description: The node with the domain name.
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingRecords.urlForwardingRecords.targetUrl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.UrlForwardingRecords.urlForwardingRecords.redirectType
+      description: The HTTP redirection status code (3  )
+  - name: csc-dbs-api-getwhoiscontactprofiledata
+    description: Get Whois contact profile data
+    arguments:
+    - name: filter_
+      description: 'Filters can be applied to your request to limit the type of data you receive. #### Selectors Selectors can be used to filter by specific properties on the whois contact profile. - profileName - firstName - lastName - organization - street1 - street2 - city - stateProvince - country - postalCode - email - phone - phoneExtn - fax - contactTypes ---  #### Search Operators ==  =gt= (greater than)  =ge= (greater than or equal)  =lt= (less than)  =le= (less than or equal)  =in=  =like=   #### Joiners   Joiners can be used to create compound filters.     ;   (and)     ,   (or) #### Special Considerations 1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted. 2. If a value contains a double quote (") or a backslash (\\), it must be escaped with a backslash. 3. Ampersand and non-ascii characters must be URL encoded.  ---   ### Examples  details  summary Click to view - All examples exclude the required preceding "filter=" /summary  blockquote   details  summary Find all profiles with a last name of Jones /summary   blockquote  ``` lastName=="Jones" ```  /blockquote   /details    details  summary Find all profiles with a last name like Jo /summary   blockquote  ``` lastName=like="Jo " ```  /blockquote   /details    details  summary Find all profiles with a last name of Jones and a contact type of REGISTRANT /summary   blockquote  ``` lastName=="Jones";contactTypes=="REGISTRANT" ```  /blockquote   /details    details  summary Find all profiles with a contact type of TECHNICAL or ADMINISTRATIVE /summary   blockquote  ``` contactTypes=in=(ADMINISTRATIVE, TECHNICAL) ```  /blockquote   /details    details  summary Find all profiles with a first name of Chuck OR a last name of Smith, in ascending order by profile name /summary   blockquote  ``` firstName=="Chuck",lastName=="Smith"&sort=profileName,asc ```  /blockquote   /details    details  summary Find all profiles by profile name Foo & Bar (encoded) /summary  blockquote  ``` profileName=="Foo%20%26%20Bar" ```  /blockquote   /details    /blockquote   /details   --- '
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.profileName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.firstName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.lastName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.organization
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.street1
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.street2
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.city
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.stateProvince
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.country
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.postalCode
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.email
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.phone
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.phoneExtn
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.whoisContactProfiles.fax
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.WhoisContactProfilePagedResource.links.self
+      description: ''
+  - name: csc-dbs-api-getzonedatabyqualifiedzonename
+    description: Get zone data by qualified zone name
+    arguments:
+    - name: zoneName
+      description: Zone name
+      required: true
+      isArray: false
+    - name: filter_
+      description: "Filters can be applied to your request to limit the zone records returned.  ### Selectors  Selectors can be used to filter by specific properties on the zone resource records.  - flag  - key  - port  - priority  - recordType  - tag  - ttl  - value  - weight  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all resource records with a recordType of A /summary  blockquote   ``` recordType==\"A\" ```   /blockquote   /details    details  summary Find all resource records with a key of \"@\" and a value like \"165.160. \" /summary  blockquote   ``` key=\"@\";value=like=\"165.160. \" ```   /blockquote   /details    details  summary Find all resource records with an 'A' record with a value of 1.2.3.4 /summary  blockquote   ``` (recordType==\"a\";value==\"1.2.3.4\") ```   /blockquote   /details     details  summary Find all resource records that have a '10' or '20' priority /summary  blockquote   ``` priority=in=(\"10\",\"20\") ```   /blockquote   /details     details  summary Find all resource records with an 'A' record with a key of 'www' OR a 'CNAME' record with a value of 'www' /summary  blockquote   ``` (recordType==\"a\";key==\"www\"),(recordType==\"cname\";value==\"www\") ```   /blockquote   /details     /blockquote   /details   --- "
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.Zone.zoneName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.hostingType
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.a.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.a.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.a.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.a.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.a.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.cname.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.cname.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.cname.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.cname.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.cname.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.aaaa.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.aaaa.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.aaaa.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.aaaa.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.aaaa.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.txt.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.txt.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.txt.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.txt.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.txt.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.mx.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.mx.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.mx.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.mx.ttl
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.mx.priority
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.mx.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.ns.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.ns.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.ns.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.ns.priority
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.ns.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.ns.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.srv.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.srv.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.srv.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.srv.priority
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.srv.weight
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.srv.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.srv.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.caa.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.caa.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.caa.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.caa.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.caa.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.caa.tag
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.caa.flag
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.serial
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.refresh
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.retry
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.expire
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.ttlMin
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.ttlNeg
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.Zone.soa.ttlZone
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.soa.techEmail
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.Zone.soa.masterHost
+      description: ''
+  - name: csc-dbs-api-getzoneportfoliodata
+    description: Get zone portfolio data
+    arguments:
+    - name: filter_
+      description: "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the zone or zone resource records.  - expire  - flag  - fullDomainName  - id  - key  - masterHost  - port  - priority  - recordType  - refresh  - retry  - serial  - tag  - techEmail  - ttl  - ttlMin  - ttlNeg  - ttlZone  - value  - weight  - zoneId  - zoneName  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all zones with a zoneName of example.com /summary  blockquote   ``` zoneName==\"example.com\" ```   /blockquote   /details    details  summary Find all zones with a zoneName like example /summary  blockquote   ``` zoneName=like=\"\\ example\\ \" ```   /blockquote   /details     details  summary Find all zones with a ttlNeg less than 15000 /summary  blockquote   ``` ttlNeg=lt=\"15000\" ```   /blockquote   /details    details  summary Find all zones with an 'A' record with a value of 1.2.3.4 /summary  blockquote   ``` (recordType==\"a\";value==\"1.2.3.4\") ```   /blockquote   /details     details  summary Find all zones that have a resource record with a '10' or '20' priority /summary  blockquote   ``` priority=in=(\"10\",\"20\") ```   /blockquote   /details     details  summary Find all zones with an 'A' record with a key of 'www' OR a 'CNAME' record with a value of 'www' /summary  blockquote   ``` (recordType==\"a\";key==\"www\"),(recordType==\"cname\";value==\"www\") ```   /blockquote   /details     /blockquote   /details   --- "
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    - name: ''
+      description: ''
+      required: false
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.zoneName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.hostingType
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.a.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.a.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.a.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.a.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.a.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.cname.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.cname.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.cname.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.cname.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.cname.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.aaaa.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.aaaa.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.aaaa.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.aaaa.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.aaaa.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.txt.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.txt.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.txt.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.txt.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.txt.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.ttl
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.priority
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.mx.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.priority
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.ns.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.priority
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.weight
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.srv.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.id
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.value
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.key
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.ttl
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.status
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.tag
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.caa.flag
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.serial
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.refresh
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.retry
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.expire
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.ttlMin
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.ttlNeg
+      description: ''
+    - type: Number
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.ttlZone
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.techEmail
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.zones.soa.masterHost
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.notManaged.code
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.PagedZoneResponse.notManaged.message
+      description: ''
+  - name: csc-dbs-api-modifythebusinessunitassociatedwithadomain
+    description: Modify the business unit associated with a domain
+    arguments:
+    - name: businessUnitName
+      description: New business unit name to associate with the domain
+      required: true
+      isArray: false
+    - name: qualifiedDomainName
+      description: Fully qualified domain name
+      required: true
+      isArray: false
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.businessUnitModResult.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.businessUnitModResult.status.code
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.businessUnitModResult.status.message
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.businessUnitModResult.status.additionalInformation
+      description: ''
+  - name: csc-dbs-api-modifythecustomfieldsassociatedwithadomain
+    description: Modify the custom fields associated with a domain
+    outputs:
+    - type: String
+      contextPath: CSC-DBS-API.customFieldModResult.qualifiedDomainName
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.customFieldModResult.status.code
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.customFieldModResult.status.message
+      description: ''
+    - type: String
+      contextPath: CSC-DBS-API.customFieldModResult.status.additionalInformation
+      description: ''
+  - name: csc-dbs-api-placeadomainregistrationorder
+    description: Place a domain registration order
+  - name: csc-dbs-api-placeansmodificationorder
+    description: Place a NS modification order
+  - name: csc-dbs-api-placeatlsregistrationorder
+    description: Place a TLS registration order
+  - name: csc-dbs-api-placeatlsreissueorder
+    description: Place a TLS reissue order
+  - name: csc-dbs-api-placeatlsrenewalorder
+    description: Place a TLS renewal order
+  - name: csc-dbs-api-placeawhoiscontactmodificationorder
+    description: Place a Whois contact modification order
+  - name: csc-dbs-api-refreshexpiredtoken
+    description: Refresh expired token
+  - name: csc-dbs-api-submitandpublishoneormorezoneedits
+    description: Submit and publish one or more zone edits

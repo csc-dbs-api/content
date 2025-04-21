@@ -1,0 +1,2806 @@
+{
+    "name": "DomainManager API",
+    "description": "API Documentation",
+    "category": "Utilities",
+    "url": "https://apis.cscglobal.com/dbs/api/v2",
+    "auth": [
+        "apiKey"
+    ],
+    "context_path": "CSC-DBS-API",
+    "commands": [
+        {
+            "name": "activateurlforwardingnode",
+            "path": "urlf/activate",
+            "method": "put",
+            "description": "Activate URL forwarding node",
+            "arguments": [],
+            "outputs": [
+                {
+                    "name": "link",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "UrlForwardingActivateResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "addonedsrecordtoadomain",
+            "path": "dsrecord",
+            "method": "post",
+            "description": "Add one DS record to a domain",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "addurlforwardingnode",
+            "path": "urlf",
+            "method": "put",
+            "description": "Add URL forwarding node",
+            "arguments": [],
+            "outputs": [
+                {
+                    "name": "result.price",
+                    "description": "price of service",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "result.service",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "UrlForwardingResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "cancelazoneeditwithafailedstatus",
+            "path": "zones/edits/{editID}",
+            "method": "delete",
+            "description": "Cancel a zone edit with a 'FAILED' status",
+            "arguments": [
+                {
+                    "name": "editID",
+                    "description": "Zone Edit ID",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "checkregistrationavailabilityforoneormoredomainnames",
+            "path": "domains/availability",
+            "method": "get",
+            "description": "Check registration availability for one or more domain names",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainNames",
+                    "description": "Provide a maximum of 50 fully qualified domain names delimited by a comma (,)",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "results.qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.result.code",
+                    "description": "Availability result",
+                    "type": "String"
+                },
+                {
+                    "name": "results.result.message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.basePrice.price",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "results.basePrice.currency",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "RegistrationAvailabilityResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "deletealldsrecordsforthegivendomainname",
+            "path": "dsrecord/all",
+            "method": "delete",
+            "description": "Delete all DS records for the given domain name",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "deleteasingledsrecordforadomain",
+            "path": "dsrecord/single",
+            "method": "delete",
+            "description": "Delete a single DS record for a domain",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "deleteurlforwardingbyqualifieddomainname",
+            "path": "urlf/{qualifiedDomainName}",
+            "method": "delete",
+            "description": "Delete URL forwarding by qualified domain name",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "UrlForwardingDeleteAllResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "deleteurlforwardingbyqualifieddomainnameandnodename",
+            "path": "urlf/{qualifiedDomainName}/node/{nodeName}",
+            "method": "delete",
+            "description": "Delete URL forwarding by qualified domain name and node name",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "nodeName",
+                    "description": "Node name to be deleted",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "nodeRemoved",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "UrlForwardingDeleteResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getalldsrecordsforaqualifieddomainname",
+            "path": "dsrecord/{qualifiedDomainName}",
+            "method": "get",
+            "description": "Get all DS records for a qualified domain name",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getasinglezoneeditbyitsuuid",
+            "path": "zones/edits/{editID}",
+            "method": "get",
+            "description": "Get a single zone edit by its UUID",
+            "arguments": [
+                {
+                    "name": "editID",
+                    "description": "A zone edit's UUID",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "zoneName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneId",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "modifiedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "requestedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "source",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "ZoneEdit",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getbusinessunitdata",
+            "path": "admin/businessunits",
+            "method": "get",
+            "description": "Get business unit data",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the business unit.  - accountName  - accountNumber  - businessUnitName  - usage  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all business units with a businessUnitName of TEST BU /summary  blockquote   ``` businessUnitName==\"TEST BU\" ```   /blockquote   /details    details  summary Find all business units with a businessUnitName like TEST /summary  blockquote   ``` businessUnitName=like=\"TEST \" ```   /blockquote   /details     details  summary Find all business units with a usage of DOMAIN and an accountNumber of 123456 /summary  blockquote   ``` usage==\"DOMAIN\";accountNumber==\"123456\" ```   /blockquote   /details     details  summary Find all business units with a usage of DOMAIN or RELATED_SERVICES /summary  blockquote   ``` usage=in=(\"DOMAIN\",\"RELATED_SERVICES\") ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "businessUnits.businessUnitName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "PagedBusinessUnitResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getbusinessunitdatabybusinessunitname",
+            "path": "admin/businessunits/{businessUnitName}",
+            "method": "get",
+            "description": "Get business unit data by business unit name",
+            "arguments": [
+                {
+                    "name": "businessUnitName",
+                    "description": "Business unit name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "businessUnitName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "BusinessUnit",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getcertificatebyuuid",
+            "path": "tls/certificate/{uuid}",
+            "method": "get",
+            "description": "Get certificate by UUID",
+            "arguments": [
+                {
+                    "name": "uuid",
+                    "description": "The UUID of the order. Returned as 'uuid' in the response.",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "uuid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "commonName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "effectiveDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "isRenewed",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "expirationDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "businessUnit",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "orderedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "orderDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "serverSoftware",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "certificate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "customFields.name",
+                    "description": "Name of the custom field as defined in Domain Manager",
+                    "type": "String"
+                },
+                {
+                    "name": "customFields.value",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "TlsOrderResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getcustomfieldsforthisaccount",
+            "path": "admin/customfields",
+            "method": "get",
+            "description": "Get custom fields for this account",
+            "arguments": [
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "customFields.label",
+                    "description": "Name of the custom field as defined in the account",
+                    "type": "String"
+                },
+                {
+                    "name": "customFields.mandatory",
+                    "description": "Is this a required field to include with orders?",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "customFields.includedOnInvoice",
+                    "description": "Is a required field to be included on invoicing?",
+                    "type": "Boolean"
+                }
+            ],
+            "context_path": "AccountCustomFields",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getdomainconfigurationinformationforowneddomainswithoptionalfiltering",
+            "path": "domains/configuration",
+            "method": "get",
+            "description": "Get domain configuration information for owned domains with optional filtering",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the domain.  - domain  - domainLabel  - domainStatusCode  - dnsHostingType  - extension  - tld  - country  - adminEmail  - adminName  - adminOrg  - regEmail  - regName  - regOrg  - techEmail  - techName  - techOrg  - accountNumber  - accountName  - businessUnit  - dnsTraffic12moAve  - hasCscUrlf  - hasDkim  - hasDnssecDs  - hasSpf  - hasWww  - isGtld  - isLive  - isLiveType  - isMultilockEligible  - isVital  - multiLocked  - numLiveMx  - numRootA  - numRootTxt  - numSslNetcraft  - numWwwA  - numWwwCname  - registryExpiryDate  - rootHttpCode  - rootHttpUrl  - rootIsUrlf  - serverDeleteProhibited  - serverTransferProhibited  - serverUpdateProhibited  - urlfTraffic12moAve  - valueRootA  - valueRootMx  - valueRootTxt  - valueWwwA  - valueWwwCname  - wwwHttpCode  - wwwHttpUrl  - wwwIsUrlf  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find configuration for the domain example.com /summary  blockquote   ``` domain==\"example.com\" ```   /blockquote   /details    details  summary Find all domains with a domainLabel like example /summary  blockquote   ``` domainLabel=like=\"example \" ```   /blockquote   /details     details  summary Find all domains with a registryExpiryDate greater than Jan 05 2020 /summary  blockquote   ``` registryExpiryDate=gt=\"2020-01-05\" ```   /blockquote   /details    details  summary Find all domains with an accountNumber of 1234567 or 0987654 /summary  blockquote   ``` accountNumber=in=(1234567, 0987654) ```   /blockquote   /details     details  summary Find all domains with a valueRootA of 165.160.13.20 or 165.160.15.25 and an extension of 'com' /summary  blockquote   ``` valueRootA=in=(\"165.160.13.20\", \"165.160.15.25\");extension==\"com\" ```   /blockquote   /details     details  summary Find all domains where isVital is true and either multiLocked is false or isMultilockEligible is false /summary  blockquote   ``` isVital==true;multiLocked==false,isMultilockEligible=...",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "meta.numResults",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "meta.pages",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.domain",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.domainLabel",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.domainStatusCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.dnsHostingType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.extension",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.tld",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.country",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.adminEmail",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.adminName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.adminOrg",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.regEmail",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.regName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.regOrg",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.techEmail",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.techName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.techOrg",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.accounts.accountNumber",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.accounts.accountName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.businessUnit",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.dnsData.dnsName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.dnsTraffic12moAve",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.hasCscUrlf",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.hasDkim",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.hasDmarc",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.hasDnssecDs",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.hasSpf",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.hasWww",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.isGtld",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.isLive",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.isLiveType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.isMultilockEligible",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.isVital",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.multiLocked",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.numLiveMx",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.numRootA",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.numRootTxt",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.numSslNetcraft",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.numWwwA",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.numWwwCname",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.registryExpiryDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.rootHttpCode",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.rootHttpUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.rootIsUrlf",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.serverDeleteProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.serverTransferProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.serverUpdateProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "configurations.urlfTraffic12moAve",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.wwwHttpeCode",
+                    "description": "",
+                    "type": "Unknown"
+                },
+                {
+                    "name": "configurations.wwwHttpUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "configurations.wwwIsUrlf",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "links.self",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "links.next",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "ConfigurationCallSuccess",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getdomaindatabyqualifieddomainname",
+            "path": "domains/{qualifiedDomainName}",
+            "method": "get",
+            "description": "Get domain data by qualified domain name",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domain",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "idn",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "extension",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "newGtld",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "managedStatus",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "registrationDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "registryExpiryDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "paidThroughDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "countryCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "serverDeleteProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "serverTransferProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "serverUpdateProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "whoisPrivacy",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "localAgent",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "dnssecActivated",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "criticalDomain",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "businessUnit",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "brandName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "idnReferenceName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "customFields.name",
+                    "description": "Name of the custom field as defined in Domain Manager",
+                    "type": "String"
+                },
+                {
+                    "name": "customFields.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.contactType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.firstName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.lastName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.organization",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.street1",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.street2",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.city",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.stateProvince",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.country",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.postalCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.phone",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.phoneExtn",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContacts.fax",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "lastModifiedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "lastModifiedReason",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "lastModifiedDescription",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "Domain",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getdomainportfoliodata",
+            "path": "domains",
+            "method": "get",
+            "description": "Get domain portfolio data",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the domain.  - accountName  - accountNumber  -  andName  - businessUnit  - city  - country  - countryCode  - criticalDomain  - dnssecActivated  - dnsType  - domain  - email  - extension  - fax  - firstName  - idnReferenceName  - lastModifiedDate  - lastModifiedDescription  - lastModifiedReason  - lastName  - localAgent  - managedStatus  - nameServers  - newGtld  - organization  - paidThroughDate  - phone  - phoneExtn  - postalCode  - qualifiedDomainName  - redirectType  - registrationDate  - registryExpiryDate  - serverDeleteProhibited  - serverTransferProhibited  - serverUpdateProhibited  - stateProvince  - street1  - street2  - urlForwarding  - whoisPrivacy  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all domains with a qualifiedDomainName of example.com /summary  blockquote   ``` qualifiedDomainName==\"example.com\" ```   /blockquote   /details    details  summary Find all domains with a qualifiedDomainName like example /summary  blockquote   ``` qualifiedDomainName=like=\"example\\ \" ```   /blockquote   /details     details  summary Find all domains with a registrationDate greater than Jan 05 2010 /summary  blockquote   ``` registrationDate=gt=\"05-JAN-2010\" ```   /blockquote   /details    details  summary Find all domains with a nameserver of dns1.mydns.com and an extension of 'com' /summary  blockquote   ``` nameservers==\"dns1.mydns.com\";extension==\"com\" ```   /blockquote   /details     details  summary Find all domains with a nameserver of dns1.mydns.com or dns2.mydns.com /summary  blockquote   ``` nameservers=in=(\"dns1.mydns.com\",\"dns2.mydns.com\") ```   /blockquote   /details     details  summary Find all domains with a WHOIS contact first name of Tom OR a last name of Smith /summary  blockquote   ``` firstName==\"Tom\",lastName==\"Smith\"&sort=qualifiedDomainName,asc ```   /blockquote   /details     details  summary Find all domains by business unit name Foo & Bar...",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "domains.qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.domain",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.idn",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.extension",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.newGtld",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.managedStatus",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.registrationDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.registryExpiryDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.paidThroughDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.countryCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.serverDeleteProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.serverTransferProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.serverUpdateProhibited",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.whoisPrivacy",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.localAgent",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.dnssecActivated",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.criticalDomain",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "domains.businessUnit",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.brandName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.idnReferenceName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.customFields.name",
+                    "description": "Name of the custom field as defined in Domain Manager",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.customFields.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.contactType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.firstName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.lastName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.organization",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.street1",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.street2",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.city",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.stateProvince",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.country",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.postalCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.phone",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.phoneExtn",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.whoisContacts.fax",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.lastModifiedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.lastModifiedReason",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "domains.lastModifiedDescription",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "PagedDomainResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getoneormorecertificates",
+            "path": "tls/certificate",
+            "method": "get",
+            "description": "Get one or more certificates",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data that you receive. When filter is not given the API will fetch certificates with status (ACTIVE, PENDING, IMPORTED) for the accessible business units.  ### Selectors  Selectors can be used to filter by specific properties on the security event.  - certificateTypeId  - name  - expirationDate  - effectiveDate  - status  - uuid  ---  ### ExpirationDate, EffectiveDate  The 'expirationDate' and the 'effectiveDate' selectors must have the following format: yyyy/MM/dd  ---  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like Query               |  ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |  ---  ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all cetificates with status ACTIVE /summary  blockquote   ``` status==ACTIVE ```   /blockquote   /details    details  summary Find all certificates between two dates /summary  blockquote   ``` expirationDate=le=2019/09/25;expirationDate=ge=2019/07/04 ```   /blockquote   /details    details  summary Find all certificate orders that have expiry date after August 25, 2019 /summary  blockquote   ``` expirationDate=gt=2019/08/25;status==ACTIVE ```   /blockquote   /details    /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "meta.numResults",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "results.uuid",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.commonName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.effectiveDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.isRenewed",
+                    "description": "",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "results.expirationDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.businessUnit",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.orderedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.orderDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.serverSoftware",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.certificate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "results.customFields.name",
+                    "description": "Name of the custom field as defined in Domain Manager",
+                    "type": "String"
+                },
+                {
+                    "name": "results.customFields.value",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "MultiTlsRetrieveResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getoneormoreorders",
+            "path": "orderstatus",
+            "method": "get",
+            "description": "Get one or more orders",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": " Filters can be applied to your request to limit the type of data that you receive.  ### Selectors  Selectors can be used to filter by specific properties on the order.  - orderType  - qualifiedDomainName  - raisedDate  - uuid  ---  ### Raised Date  The 'raised date' selector must have the following format: yyyy/MM/dd  ---  ### Search Operators  | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like Query               |  ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |  ---  ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.  ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all orders of type MULTILOCK /summary  blockquote   ``` orderType==MULTILOCK ```   /blockquote   /details    details  summary Find all orders between two dates /summary  blockquote   ``` raisedDate=le=2019/09/25;raisedDate=ge=2019/07/04 ```   /blockquote   /details    details  summary Find all REGISTRATION orders that were raised after August 25, 2019 /summary  blockquote   ``` raisedDate=gt=2019/08/25;orderType==REGISTRATION ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "meta.numResults",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "ordersList.qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ordersList.accountName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ordersList.accountNumber",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ordersList.raisedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ordersList.raisedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ordersList.uuid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "MultiOrderResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getoneormoresecurityevents",
+            "path": "events",
+            "method": "get",
+            "description": "Get one or more security events",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": " Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the security event.  - eventDate  - eventType  - id  ---  ### Event Date  If the 'event date' selector is provided it must be an ISO-standard timestamp. (ex. 2019-11-17T22:35:32). The timezone needs to be UTC for accurate results.  ---  ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                |   ---   ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---   ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---  ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all events of type DNS_CHANGE_REQUESTED /summary  blockquote   ``` eventType==DNS_CHANGE_REQUESTED ```   /blockquote   /details    details  summary Find all events between two timestamps /summary  blockquote   ``` eventdate=le=2019-09-25T00:00:00;eventDate=ge=2019-07-04T00:00:00 ```   /blockquote   /details     details  summary Find all LOGIN events that occurred after August 25, 2019 /summary  blockquote   ``` eventdate=gt=2019-08-25T00:00:00;eventType==LOGIN ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "events.id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "PagedEventResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getoneormorezoneedits",
+            "path": "zones/edits",
+            "method": "get",
+            "description": "Get one or more zone edits",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the zone or zone edit.  - zoneName  - modifiedDate  - status  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all zone edits for the zone of example.com /summary  blockquote   ``` zoneName==\"example.com\" ```   /blockquote   /details    details  summary Find all zone edits for a zone with a name like example /summary  blockquote   ``` zoneName=like=\"\\ example\\ \" ```   /blockquote   /details     details  summary Find all zone edits with a modified date of March 31st, 2020 /summary  blockquote   ``` modifiedDate==31-Mar-2020 ```   /blockquote   /details    details  summary Find all zone edits with a modified date before March 31st, 2020 and with a status of 'CANCELED' /summary  blockquote   ``` modifiedDate=lt=31-Mar-2020;status==canceled ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "zoneEdits.zoneName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneEdits.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneEdits.zoneId",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneEdits.modifiedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneEdits.requestedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zoneEdits.source",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "PagedZoneEditResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getordersbytheiruuid",
+            "path": "orderstatus/{orderUUID}",
+            "method": "get",
+            "description": "Get orders by their UUID",
+            "arguments": [
+                {
+                    "name": "orderUUID",
+                    "description": "The UUID of the order. Returned as 'uuid' in the response.",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "accountName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "accountNumber",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "raisedBy",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "raisedDate",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "uuid",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "Order",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getsecurityeventsbyid",
+            "path": "events/{eventID}",
+            "method": "get",
+            "description": "Get security events by ID",
+            "arguments": [
+                {
+                    "name": "eventID",
+                    "description": "Event ID",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "SecurityEvent",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getthecurrentstatusofazoneedit",
+            "path": "zones/edits/status/{editID}",
+            "method": "get",
+            "description": "Get the current status of a zone edit",
+            "arguments": [
+                {
+                    "name": "editID",
+                    "description": "Zone Edit ID",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "ZoneEditStatusResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "geturlforwardingdatabyqualifieddomainname",
+            "path": "urlf/{qualifiedDomainName}",
+            "method": "get",
+            "description": "Get URL forwarding data by qualified domain name",
+            "arguments": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "urlForwardingRecords.node",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "urlForwardingRecords.domainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "urlForwardingRecords.sourceUrl",
+                    "description": "The node with the domain name.",
+                    "type": "String"
+                },
+                {
+                    "name": "urlForwardingRecords.targetUrl",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "urlForwardingRecords.redirectType",
+                    "description": "The HTTP redirection status code (3  )",
+                    "type": "String"
+                }
+            ],
+            "context_path": "UrlForwardingRecords",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getwhoiscontactprofiledata",
+            "path": "admin/whoiscontactprofiles",
+            "method": "get",
+            "description": "Get Whois contact profile data",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive. #### Selectors Selectors can be used to filter by specific properties on the whois contact profile. - profileName - firstName - lastName - organization - street1 - street2 - city - stateProvince - country - postalCode - email - phone - phoneExtn - fax - contactTypes ---  #### Search Operators ==  =gt= (greater than)  =ge= (greater than or equal)  =lt= (less than)  =le= (less than or equal)  =in=  =like=   #### Joiners   Joiners can be used to create compound filters.     ;   (and)     ,   (or) #### Special Considerations 1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted. 2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash. 3. Ampersand and non-ascii characters must be URL encoded.  ---   ### Examples  details  summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote   details  summary Find all profiles with a last name of Jones /summary   blockquote  ``` lastName==\"Jones\" ```  /blockquote   /details    details  summary Find all profiles with a last name like Jo /summary   blockquote  ``` lastName=like=\"Jo \" ```  /blockquote   /details    details  summary Find all profiles with a last name of Jones and a contact type of REGISTRANT /summary   blockquote  ``` lastName==\"Jones\";contactTypes==\"REGISTRANT\" ```  /blockquote   /details    details  summary Find all profiles with a contact type of TECHNICAL or ADMINISTRATIVE /summary   blockquote  ``` contactTypes=in=(ADMINISTRATIVE, TECHNICAL) ```  /blockquote   /details    details  summary Find all profiles with a first name of Chuck OR a last name of Smith, in ascending order by profile name /summary   blockquote  ``` firstName==\"Chuck\",lastName==\"Smith\"&sort=profileName,asc ```  /blockquote   /details    details  summary Find all profiles by profile name Foo & Bar (encoded) /summary  blockquote  ``` profileName==\"Foo%20%26%20Bar\" ```  /blockquote   /details    /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "whoisContactProfiles.profileName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.firstName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.lastName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.organization",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.street1",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.street2",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.city",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.stateProvince",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.country",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.postalCode",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.email",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.phone",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.phoneExtn",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "whoisContactProfiles.fax",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "links.self",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "WhoisContactProfilePagedResource",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getzonedatabyqualifiedzonename",
+            "path": "zones/{zoneName}",
+            "method": "get",
+            "description": "Get zone data by qualified zone name",
+            "arguments": [
+                {
+                    "name": "zoneName",
+                    "description": "Zone name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the zone records returned.  ### Selectors  Selectors can be used to filter by specific properties on the zone resource records.  - flag  - key  - port  - priority  - recordType  - tag  - ttl  - value  - weight  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all resource records with a recordType of A /summary  blockquote   ``` recordType==\"A\" ```   /blockquote   /details    details  summary Find all resource records with a key of \"@\" and a value like \"165.160. \" /summary  blockquote   ``` key=\"@\";value=like=\"165.160. \" ```   /blockquote   /details    details  summary Find all resource records with an 'A' record with a value of 1.2.3.4 /summary  blockquote   ``` (recordType==\"a\";value==\"1.2.3.4\") ```   /blockquote   /details     details  summary Find all resource records that have a '10' or '20' priority /summary  blockquote   ``` priority=in=(\"10\",\"20\") ```   /blockquote   /details     details  summary Find all resource records with an 'A' record with a key of 'www' OR a 'CNAME' record with a value of 'www' /summary  blockquote   ``` (recordType==\"a\";key==\"www\"),(recordType==\"cname\";value==\"www\") ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "zoneName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "hostingType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "a.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "a.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "a.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "a.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "a.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "cname.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "cname.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "cname.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "cname.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "cname.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "aaaa.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "aaaa.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "aaaa.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "aaaa.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "aaaa.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "txt.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "txt.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "txt.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "txt.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "txt.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "mx.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "mx.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "mx.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "mx.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "mx.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "mx.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ns.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ns.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ns.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "ns.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "ns.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "ns.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "srv.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "srv.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "srv.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "srv.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "srv.weight",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "srv.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "srv.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "caa.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.tag",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "caa.flag",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.serial",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.refresh",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.retry",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.expire",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.ttlMin",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.ttlNeg",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.ttlZone",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "soa.techEmail",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "soa.masterHost",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "Zone",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getzoneportfoliodata",
+            "path": "zones",
+            "method": "get",
+            "description": "Get zone portfolio data",
+            "arguments": [
+                {
+                    "name": "filter",
+                    "description": "Filters can be applied to your request to limit the type of data you receive.  ### Selectors  Selectors can be used to filter by specific properties on the zone or zone resource records.  - expire  - flag  - fullDomainName  - id  - key  - masterHost  - port  - priority  - recordType  - refresh  - retry  - serial  - tag  - techEmail  - ttl  - ttlMin  - ttlNeg  - ttlZone  - value  - weight  - zoneId  - zoneName  ---   ### Search Operators    | Operator | Name                     | |----------|--------------------------| | ==       | Equals                   | | =gt=     | Greater Than             | | =ge=     | Greater Than or Equal to | | =lt=     | Less Than                | | =le=     | Less Than or Equal to    | | =in=     | In a list                | | =like=   | Like query               |   ---  ### Joiners  Joiners can be used to create compound filters.  | Joiner | Name | |--------|------| | ;      | And  | | ,      | Or   |   ---    ### Special Considerations  1. Surround values in double quotes. If the value is a single alphanumeric term, the quotes can be omitted.  2. If a value contains a double quote (\") or a backslash (\\\\), it must be escaped with a backslash.  3. Ampersand and non-ascii characters must be URL encoded.   ---    ### Examples   details   summary Click to view - All examples exclude the required preceding \"filter=\" /summary  blockquote    details  summary Find all zones with a zoneName of example.com /summary  blockquote   ``` zoneName==\"example.com\" ```   /blockquote   /details    details  summary Find all zones with a zoneName like example /summary  blockquote   ``` zoneName=like=\"\\ example\\ \" ```   /blockquote   /details     details  summary Find all zones with a ttlNeg less than 15000 /summary  blockquote   ``` ttlNeg=lt=\"15000\" ```   /blockquote   /details    details  summary Find all zones with an 'A' record with a value of 1.2.3.4 /summary  blockquote   ``` (recordType==\"a\";value==\"1.2.3.4\") ```   /blockquote   /details     details  summary Find all zones that have a resource record with a '10' or '20' priority /summary  blockquote   ``` priority=in=(\"10\",\"20\") ```   /blockquote   /details     details  summary Find all zones with an 'A' record with a key of 'www' OR a 'CNAME' record with a value of 'www' /summary  blockquote   ``` (recordType==\"a\";key==\"www\"),(recordType==\"cname\";value==\"www\") ```   /blockquote   /details     /blockquote   /details   --- ",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "",
+                    "description": "",
+                    "required": null,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "zones.zoneName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.hostingType",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.a.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.a.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.a.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.a.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.a.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.cname.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.cname.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.cname.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.cname.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.cname.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.aaaa.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.aaaa.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.aaaa.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.aaaa.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.aaaa.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.txt.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.txt.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.txt.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.txt.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.txt.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.mx.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.mx.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.mx.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.mx.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.mx.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.mx.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.ns.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.ns.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.ns.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.ns.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.ns.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.ns.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.srv.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.srv.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.srv.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.srv.priority",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.srv.weight",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.srv.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.srv.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.id",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.value",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.ttl",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.caa.status",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.tag",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.caa.flag",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.serial",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.refresh",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.retry",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.expire",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.ttlMin",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.ttlNeg",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.ttlZone",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "zones.soa.techEmail",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "zones.soa.masterHost",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "notManaged.code",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "notManaged.message",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "PagedZoneResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "modifythebusinessunitassociatedwithadomain",
+            "path": "admin/businessunit/{businessUnitName}/domain/{qualifiedDomainName}",
+            "method": "put",
+            "description": "Modify the business unit associated with a domain",
+            "arguments": [
+                {
+                    "name": "businessUnitName",
+                    "description": "New business unit name to associate with the domain",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "Fully qualified domain name",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.code",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.additionalInformation",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "businessUnitModResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "modifythecustomfieldsassociatedwithadomain",
+            "path": "admin/customfields",
+            "method": "put",
+            "description": "Modify the custom fields associated with a domain",
+            "arguments": [],
+            "outputs": [
+                {
+                    "name": "qualifiedDomainName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.code",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status.additionalInformation",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "customFieldModResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeadomainregistrationorder",
+            "path": "domains/registration",
+            "method": "post",
+            "description": "Place a domain registration order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeansmodificationorder",
+            "path": "domains/nsmodification",
+            "method": "put",
+            "description": "Place a NS modification order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "NsModRequestResult",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeatlsregistrationorder",
+            "path": "tls/registration",
+            "method": "post",
+            "description": "Place a TLS registration order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "TlsResponse",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeatlsreissueorder",
+            "path": "tls/reissue",
+            "method": "post",
+            "description": "Place a TLS reissue order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "TlsResponseEV",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeatlsrenewalorder",
+            "path": "tls/renewal",
+            "method": "post",
+            "description": "Place a TLS renewal order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "TlsResponseUCC",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "placeawhoiscontactmodificationorder",
+            "path": "domains/whoiscontactmodification",
+            "method": "put",
+            "description": "Place a Whois contact modification order",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "refreshexpiredtoken",
+            "path": "token/refresh",
+            "method": "put",
+            "description": "Refresh expired token",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "submitandpublishoneormorezoneedits",
+            "path": "zones/edits",
+            "method": "post",
+            "description": "Submit and publish one or more zone edits",
+            "arguments": [],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        }
+    ],
+    "code_type": "python",
+    "code_subtype": "python3",
+    "docker_image": "demisto/python3:3.12.8.1983910"
+}
