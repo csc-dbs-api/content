@@ -1,0 +1,914 @@
+{
+    "name": "Anti Fraud API",
+    "description": "This is an anti fraud external api for organizations.",
+    "category": "Utilities",
+    "url": "/dbs/fraud-protection/v1/fraud-protection-api/external/v3",
+    "auth": [
+        "apiKey"
+    ],
+    "context_path": "CSCTakedowns",
+    "commands": [
+        {
+            "name": "controldetectionflowbyeventidandaction",
+            "path": "detections/control",
+            "method": "put",
+            "description": "Control detection flow by event ID and action",
+            "arguments": [
+                {
+                    "name": "action",
+                    "description": "Update the action with eventID",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "fetchthedetectiondataandconverttopdf",
+            "path": "detections/{eventId}/pdf",
+            "method": "get",
+            "description": "Fetch the detection data and convert to pdf",
+            "arguments": [
+                {
+                    "name": "eventId",
+                    "description": "Event Id to download takedown report",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "fetchthephishkitdatawithticketid",
+            "path": "takedowns/{ticketId}/phishkit",
+            "method": "get",
+            "description": "Fetch the phishkit data with ticketId",
+            "arguments": [
+                {
+                    "name": "ticketId",
+                    "description": "Ticket Id to fetch phishkit",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "fetchthescreenshotdatawithticketid",
+            "path": "takedowns/{ticketId}/screenshot",
+            "method": "get",
+            "description": "Fetch the screenshot data with ticketId",
+            "arguments": [
+                {
+                    "name": "ticketId",
+                    "description": "Ticket Id to fetch screenshot",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "fetchtheticketdataandconverttopdf",
+            "path": "takedowns/{ticketId}/pdf",
+            "method": "get",
+            "description": "Fetch the ticket data and convert to pdf",
+            "arguments": [
+                {
+                    "name": "ticketId",
+                    "description": "Ticket Id to fetch supporting documents for takedown",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "gethtmlsourcecodeforaticket",
+            "path": "takedowns/html/{ticketId}",
+            "method": "get",
+            "description": "Get HTML Source Code for a Ticket",
+            "arguments": [
+                {
+                    "name": "ticketId",
+                    "description": "Ticket ID to fetch HTML source",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getlistofands",
+            "path": "brands",
+            "method": "get",
+            "description": "Get list of Brands",
+            "arguments": [],
+            "outputs": [
+                {
+                    "name": "brandId",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "brandName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "isActive",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "getlistoffraudtypes",
+            "path": "fraud-types",
+            "method": "get",
+            "description": "Get list of fraud types",
+            "arguments": [],
+            "outputs": [
+                {
+                    "name": "fraudTypeId",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "fraudTypeName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "listofworklogsforticketid",
+            "path": "takedowns/{ticketId}/worklogs",
+            "method": "get",
+            "description": "List of work logs for ticket id",
+            "arguments": [
+                {
+                    "name": "ticketId",
+                    "description": "Ticket ID to fetch work log details",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "listtakedownevents",
+            "path": "takedowns/list",
+            "method": "get",
+            "description": "List Takedown Events",
+            "arguments": [
+                {
+                    "name": "fromDate",
+                    "description": "Start date in YYYY-MM-DD format",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "toDate",
+                    "description": "End date in YYYY--MM--DD format",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "page",
+                    "description": "page size",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "limit",
+                    "description": "Limit between 100 and 500, default = 100",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "listtakedowneventswithfilters",
+            "path": "takedowns/filtered-list",
+            "method": "get",
+            "description": "List Takedown events with filters",
+            "arguments": [
+                {
+                    "name": "fromDate",
+                    "description": "Start date in YYYY-MM-DD format",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "toDate",
+                    "description": "End date in YYYY--MM--DD format",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "_andId",
+                    "description": "Filter by Brand Id",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "fraudType",
+                    "description": "Type of the Fraud",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "ticketStatus",
+                    "description": "Ticket Status",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "DetectionDate",
+                    "description": "Filter by Detection date",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "boolean",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "AuthorizationDate",
+                    "description": "Filter by Authorization date",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "boolean",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "CompletedDate",
+                    "description": "Filter by Closed date",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "boolean",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "page",
+                    "description": "page size",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "limit",
+                    "description": "Limit between 100 and 500, default = 100",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "performanactiononasingletarget",
+            "path": "actions/addone",
+            "method": "post",
+            "description": "Perform an action on a single target",
+            "arguments": [
+                {
+                    "name": "targetType",
+                    "description": "Type of the target (URL, PHONE, EMAIL)",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "action",
+                    "description": "Ticket action",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "fraudType",
+                    "description": "Type of the Fraud",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "retrieveeventscreenshotwitheventid",
+            "path": "detections/{eventId}/screenshot",
+            "method": "get",
+            "description": "Retrieve event screenshot with eventId",
+            "arguments": [
+                {
+                    "name": "eventId",
+                    "description": "Event Id to fetch screenshot details",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe",
+            "path": "monitoring/filtered-list",
+            "method": "get",
+            "description": "Retrieve filtered list of monitoring results within specified timeframe",
+            "arguments": [
+                {
+                    "name": "startDate",
+                    "description": "Filter by from date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "endDate",
+                    "description": "Filter by end date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "_andId",
+                    "description": "Filter by Brand Id",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "fraudType",
+                    "description": "Type of the Fraud",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "monitoringStatus",
+                    "description": "Monitoring Status",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "page",
+                    "description": "page size",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "limit",
+                    "description": "Limit between 100 and 500, default is 100",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "retrievelistofdetectionswithinspecifiedtimeframe",
+            "path": "detections/list",
+            "method": "get",
+            "description": "Retrieve list of detections within specified timeframe",
+            "arguments": [
+                {
+                    "name": "fromDate",
+                    "description": "Filter by from date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "toDate",
+                    "description": "Filter by to date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "scoreMin",
+                    "description": "Filter by score",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "ip",
+                    "description": "Filter by ip",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "isp",
+                    "description": "Filter by isp",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "registrar",
+                    "description": "Filter by registrar",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "monitoring",
+                    "description": "Filter by monitoring",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "bool",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "page",
+                    "description": "page size",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "limit",
+                    "description": "Limit between 100 and 500, default is 100",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "retrievelistofmonitoringresultswithinspecifiedtimeframe",
+            "path": "monitoring/list",
+            "method": "get",
+            "description": "Retrieve list of monitoring results within specified timeframe",
+            "arguments": [
+                {
+                    "name": "startDate",
+                    "description": "Filter by from date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "endDate",
+                    "description": "Filter by end date. Expected format: YYYY-MM-DD",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "page",
+                    "description": "page size",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                },
+                {
+                    "name": "limit",
+                    "description": "Limit between 100 and 500, default is 100",
+                    "required": false,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "retrievephishkitwitheventid",
+            "path": "detections/{eventId}/phishkit",
+            "method": "get",
+            "description": "Retrieve phishkit with eventId",
+            "arguments": [
+                {
+                    "name": "eventId",
+                    "description": "Event Id to fetch phishkit details",
+                    "required": true,
+                    "default": "",
+                    "in": "path",
+                    "ref": "",
+                    "type": "integer",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "startorstopmonitoringforaspecificevent",
+            "path": "monitoring/control",
+            "method": "put",
+            "description": "Start or stop monitoring for a specific event",
+            "arguments": [
+                {
+                    "name": "action",
+                    "description": "Monitoring action to perform",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "message",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "status",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        },
+        {
+            "name": "updatetheactionwithticketid",
+            "path": "takedowns/control",
+            "method": "put",
+            "description": "Update the action with ticketId",
+            "arguments": [
+                {
+                    "name": "action",
+                    "description": "Ticket action",
+                    "required": true,
+                    "default": "",
+                    "in": "query",
+                    "ref": "",
+                    "type": "string",
+                    "options": null,
+                    "properties": {}
+                }
+            ],
+            "outputs": [],
+            "context_path": "",
+            "root_object": "",
+            "headers": [],
+            "unique_key": ""
+        }
+    ],
+    "code_type": "python",
+    "code_subtype": "python3",
+    "docker_image": "demisto/python3:3.12.13.8319994"
+}
