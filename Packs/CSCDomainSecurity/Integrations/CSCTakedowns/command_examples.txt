@@ -1,0 +1,2 @@
+!CSCTakedowns-fetchthephishkitdatawithticketid ticketId=123
+!CSCTakedowns-fetchthescreenshotdatawithticketid ticketId=123

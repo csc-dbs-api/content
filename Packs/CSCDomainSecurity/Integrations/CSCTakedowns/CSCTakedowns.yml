@@ -7,8 +7,8 @@ category: Utilities
 description: This is an anti fraud external api for organizations.
 configuration:
 - name: url
-  display: Server URL (e.g. /dbs/fraud-protection/v1/fraud-protection-api/external/v3)
-  defaultvalue: /dbs/fraud-protection/v1/fraud-protection-api/external/v3
+  display: Server URL
+  defaultvalue: https://apis.cscglobal.com/dbs/fraud-protection/v1/fraud-protection-api/external/v3
   type: 0
   required: true
 - name: api_key
@@ -33,7 +33,7 @@ script:
   dockerimage: demisto/python3:3.12.13.8319994
   isfetch: false
   commands:
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-controldetectionflowbyeventidandaction
+  - name: CSCTakedowns-controldetectionflowbyeventidandaction
     description: Control detection flow by event ID and action
     arguments:
     - name: action
@@ -47,7 +47,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-fetchthedetectiondataandconverttopdf
+  - name: CSCTakedowns-fetchthedetectiondataandconverttopdf
     description: Fetch the detection data and convert to pdf
     arguments:
     - name: eventId
@@ -61,21 +61,21 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-fetchthephishkitdatawithticketid
+  - name: CSCTakedowns-fetchthephishkitdatawithticketid
     description: Fetch the phishkit data with ticketId
     arguments:
     - name: ticketId
       description: Ticket Id to fetch phishkit
       required: true
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-fetchthescreenshotdatawithticketid
+  - name: CSCTakedowns-fetchthescreenshotdatawithticketid
     description: Fetch the screenshot data with ticketId
     arguments:
     - name: ticketId
       description: Ticket Id to fetch screenshot
       required: true
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-fetchtheticketdataandconverttopdf
+  - name: CSCTakedowns-fetchtheticketdataandconverttopdf
     description: Fetch the ticket data and convert to pdf
     arguments:
     - name: ticketId
@@ -89,7 +89,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-gethtmlsourcecodeforaticket
+  - name: CSCTakedowns-gethtmlsourcecodeforaticket
     description: Get HTML Source Code for a Ticket
     arguments:
     - name: ticketId
@@ -103,7 +103,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-getlistofands
+  - name: CSCTakedowns-getlistofands
     description: Get list of Brands
     outputs:
     - type: Number
@@ -115,7 +115,7 @@ script:
     - type: Boolean
       contextPath: /mnt/c/Users/schakrad/documents/content.isActive
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-getlistoffraudtypes
+  - name: CSCTakedowns-getlistoffraudtypes
     description: Get list of fraud types
     outputs:
     - type: Number
@@ -124,7 +124,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.fraudTypeName
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-listofworklogsforticketid
+  - name: CSCTakedowns-listofworklogsforticketid
     description: List of work logs for ticket id
     arguments:
     - name: ticketId
@@ -138,7 +138,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-listtakedownevents
+  - name: CSCTakedowns-listtakedownevents
     description: List Takedown Events
     arguments:
     - name: fromDate
@@ -164,7 +164,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-listtakedowneventswithfilters
+  - name: CSCTakedowns-listtakedowneventswithfilters
     description: List Takedown events with filters
     arguments:
     - name: fromDate
@@ -214,7 +214,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-performanactiononasingletarget
+  - name: CSCTakedowns-performanactiononasingletarget
     description: Perform an action on a single target
     arguments:
     - name: targetType
@@ -236,14 +236,14 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-retrieveeventscreenshotwitheventid
+  - name: CSCTakedowns-retrieveeventscreenshotwitheventid
     description: Retrieve event screenshot with eventId
     arguments:
     - name: eventId
       description: Event Id to fetch screenshot details
       required: true
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+  - name: CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
     description: Retrieve filtered list of monitoring results within specified timeframe
     arguments:
     - name: startDate
@@ -274,7 +274,7 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
+  - name: CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
     description: Retrieve list of detections within specified timeframe
     arguments:
     - name: fromDate
@@ -313,7 +313,7 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
+  - name: CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
     description: Retrieve list of monitoring results within specified timeframe
     arguments:
     - name: startDate
@@ -332,14 +332,14 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-retrievephishkitwitheventid
+  - name: CSCTakedowns-retrievephishkitwitheventid
     description: Retrieve phishkit with eventId
     arguments:
     - name: eventId
       description: Event Id to fetch phishkit details
       required: true
       isArray: false
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-startorstopmonitoringforaspecificevent
+  - name: CSCTakedowns-startorstopmonitoringforaspecificevent
     description: Start or stop monitoring for a specific event
     arguments:
     - name: action
@@ -353,7 +353,7 @@ script:
     - type: String
       contextPath: /mnt/c/Users/schakrad/documents/content.status
       description: ''
-  - name: /mnt/c/Users/schakrad/documents/content/Packs/CSCTakedowns-updatetheactionwithticketid
+  - name: CSCTakedowns-updatetheactionwithticketid
     description: Update the action with ticketId
     arguments:
     - name: action
