@@ -93,12 +93,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":600}}'
     note: false
@@ -150,12 +150,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":1000}}'
     note: false
@@ -253,12 +253,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":1800}}'
     note: false
@@ -310,12 +310,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":2200}}'
     note: false
@@ -367,17 +367,17 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.brandId
+              simple: brandId
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.brandName
+              simple: brandName
             iscontext: true
       - - operator: isExists
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.isActive
+              simple: isActive
             iscontext: true
     view: '{"position":{"x":50,"y":2600}}'
     note: false
@@ -429,12 +429,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.fraudTypeId
+              simple: fraudTypeId
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.fraudTypeName
+              simple: fraudTypeName
             iscontext: true
     view: '{"position":{"x":50,"y":3000}}'
     note: false
@@ -486,12 +486,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":3400}}'
     note: false
@@ -543,12 +543,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":3800}}'
     note: false
@@ -600,12 +600,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":4200}}'
     note: false
@@ -657,12 +657,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":4600}}'
     note: false
@@ -829,12 +829,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.message
+              simple: message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: /mnt/c/Users/schakrad/documents/content.status
+              simple: status
             iscontext: true
     view: '{"position":{"x":50,"y":6000}}'
     note: false

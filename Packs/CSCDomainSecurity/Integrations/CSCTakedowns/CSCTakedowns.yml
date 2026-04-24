@@ -42,10 +42,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-fetchthedetectiondataandconverttopdf
     description: Fetch the detection data and convert to pdf
@@ -56,10 +56,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-fetchthephishkitdatawithticketid
     description: Fetch the phishkit data with ticketId
@@ -84,10 +84,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-gethtmlsourcecodeforaticket
     description: Get HTML Source Code for a Ticket
@@ -98,31 +98,31 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-getlistofands
     description: Get list of Brands
     outputs:
     - type: Number
-      contextPath: /mnt/c/Users/schakrad/documents/content.brandId
+      contextPath: content.brandId
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.brandName
+      contextPath: content.brandName
       description: ''
     - type: Boolean
-      contextPath: /mnt/c/Users/schakrad/documents/content.isActive
+      contextPath: content.isActive
       description: ''
   - name: CSCTakedowns-getlistoffraudtypes
     description: Get list of fraud types
     outputs:
     - type: Number
-      contextPath: /mnt/c/Users/schakrad/documents/content.fraudTypeId
+      contextPath: content.fraudTypeId
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.fraudTypeName
+      contextPath: content.fraudTypeName
       description: ''
   - name: CSCTakedowns-listofworklogsforticketid
     description: List of work logs for ticket id
@@ -133,10 +133,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-listtakedownevents
     description: List Takedown Events
@@ -159,10 +159,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-listtakedowneventswithfilters
     description: List Takedown events with filters
@@ -209,10 +209,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-performanactiononasingletarget
     description: Perform an action on a single target
@@ -231,10 +231,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-retrieveeventscreenshotwitheventid
     description: Retrieve event screenshot with eventId
@@ -348,10 +348,10 @@ script:
       isArray: false
     outputs:
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.message
+      contextPath: content.message
       description: ''
     - type: String
-      contextPath: /mnt/c/Users/schakrad/documents/content.status
+      contextPath: content.status
       description: ''
   - name: CSCTakedowns-updatetheactionwithticketid
     description: Update the action with ticketId

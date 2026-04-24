@@ -154,7 +154,7 @@ def controldetectionflowbyeventidandaction_command(client: Client, args: Dict[st
 
     response = client.controldetectionflowbyeventidandaction_request(action)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -168,7 +168,7 @@ def fetchthedetectiondataandconverttopdf_command(client: Client, args: Dict[str,
 
     response = client.fetchthedetectiondataandconverttopdf_request(eventId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -182,7 +182,7 @@ def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any
 
     response = client.fetchthephishkitdatawithticketid_request(ticketId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -196,7 +196,7 @@ def fetchthescreenshotdatawithticketid_command(client: Client, args: Dict[str, A
 
     response = client.fetchthescreenshotdatawithticketid_request(ticketId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -210,7 +210,7 @@ def fetchtheticketdataandconverttopdf_command(client: Client, args: Dict[str, An
 
     response = client.fetchtheticketdataandconverttopdf_request(ticketId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -224,7 +224,7 @@ def gethtmlsourcecodeforaticket_command(client: Client, args: Dict[str, Any]) ->
 
     response = client.gethtmlsourcecodeforaticket_request(ticketId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -237,7 +237,7 @@ def getlistofands_command(client: Client, args: Dict[str, Any]) -> CommandResult
 
     response = client.getlistofands_request()
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -250,7 +250,7 @@ def getlistoffraudtypes_command(client: Client, args: Dict[str, Any]) -> Command
 
     response = client.getlistoffraudtypes_request()
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -264,7 +264,7 @@ def listofworklogsforticketid_command(client: Client, args: Dict[str, Any]) -> C
 
     response = client.listofworklogsforticketid_request(ticketId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -281,7 +281,7 @@ def listtakedownevents_command(client: Client, args: Dict[str, Any]) -> CommandR
 
     response = client.listtakedownevents_request(fromDate, toDate, page, limit)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -304,7 +304,7 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
 
     response = client.listtakedowneventswithfilters_request(fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -320,7 +320,7 @@ def performanactiononasingletarget_command(client: Client, args: Dict[str, Any])
 
     response = client.performanactiononasingletarget_request(targetType, action, fraudType)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -334,7 +334,7 @@ def retrieveeventscreenshotwitheventid_command(client: Client, args: Dict[str, A
 
     response = client.retrieveeventscreenshotwitheventid_request(eventId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -354,7 +354,7 @@ def retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_command(clie
 
     response = client.retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request(startDate, endDate, _andId, fraudType, monitoringStatus, page, limit)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -376,7 +376,7 @@ def retrievelistofdetectionswithinspecifiedtimeframe_command(client: Client, arg
 
     response = client.retrievelistofdetectionswithinspecifiedtimeframe_request(fromDate, toDate, scoreMin, ip, isp, registrar, monitoring, page, limit)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -393,7 +393,7 @@ def retrievelistofmonitoringresultswithinspecifiedtimeframe_command(client: Clie
 
     response = client.retrievelistofmonitoringresultswithinspecifiedtimeframe_request(startDate, endDate, page, limit)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -407,7 +407,7 @@ def retrievephishkitwitheventid_command(client: Client, args: Dict[str, Any]) ->
 
     response = client.retrievephishkitwitheventid_request(eventId)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -421,7 +421,7 @@ def startorstopmonitoringforaspecificevent_command(client: Client, args: Dict[st
 
     response = client.startorstopmonitoringforaspecificevent_request(action)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response
@@ -435,7 +435,7 @@ def updatetheactionwithticketid_command(client: Client, args: Dict[str, Any]) ->
 
     response = client.updatetheactionwithticketid_request(action)
     command_results = CommandResults(
-        outputs_prefix='/mnt/c/Users/schakrad/documents/content',
+        outputs_prefix='',
         outputs_key_field='',
         outputs=response,
         raw_response=response

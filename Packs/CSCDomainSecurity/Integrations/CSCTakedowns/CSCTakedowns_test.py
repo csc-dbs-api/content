@@ -29,7 +29,7 @@ def test_fetchthephishkitdatawithticketid_command(client, requests_mock):
     requests_mock.post(SERVER_URL, json=mock_response_fetchthephishkitdatawithticketid_request)
     results = fetchthephishkitdatawithticketid_command(client=client, args=args
                                                        )
-    assert results.outputs_prefix == '/mnt/c/Users/schakrad/documents/content'
+    assert results.outputs_prefix == ''
     assert results.outputs_key_field == ''
     assert results.outputs == mock_results.get('outputs')
     assert results.raw_response == mock_response_fetchthephishkitdatawithticketid_request
@@ -49,7 +49,7 @@ def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
     requests_mock.post(SERVER_URL, json=mock_response_fetchthescreenshotdatawithticketid_request)
     results = fetchthescreenshotdatawithticketid_command(client=client,
                                                          args=args)
-    assert results.outputs_prefix == '/mnt/c/Users/schakrad/documents/content'
+    assert results.outputs_prefix == ''
     assert results.outputs_key_field == ''
     assert results.outputs == mock_results.get('outputs')
     assert results.raw_response == mock_response_fetchthescreenshotdatawithticketid_request
