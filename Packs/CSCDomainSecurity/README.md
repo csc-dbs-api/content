@@ -2,9 +2,9 @@ Note: Support for this Pack moved to the Partner on November 7, 2024.
 
 Please contact the partner directly via the support link on the right.
 
-CSCDomainManager is a web-based portfolio management platform consolidating domains alongside social media usernames, SSL digital certificates, and DNS.
+CSCDomainManager℠ integrates domain activity data directly into your Cortex environment, providing visibility into access and changes across your domain portfolio. This audit trail enables security teams to detect unauthorized activity, investigate incidents, and reconstruct events during domain-based threats targeting your brand. It also establishes a foundation for digital provenance—an increasingly critical capability in the AI era.
 
-CSCTakedowns is an anti fraud external api for organizations.
+CSCTakedowns delivers global domain takedown and brand enforcement services to combat phishing and brand abuse. Through this Cortex integration, customers can submit takedown requests directly via API—streamlining response workflows, accelerating mitigation, and reducing exposure to domain-driven cyber threats.
 
 CSC offers innovative, next generation domain management and security solutions coupled with online brand and fraud protection. DomainSec is a comprehensive platform for domain security. Powered by a correlation engine and machine learning technology, it brings together the variety of data sets and blocking networks enabling threat intelligence based on domain security insights.
 
