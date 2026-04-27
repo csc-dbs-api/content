@@ -457,7 +457,7 @@ def main() -> None:
     verify_certificate: bool = not params.get('insecure', False)
     proxy = params.get('proxy', False)
     headers = {}
-    headers['Authorization'] = params['api_key']
+    headers['APIKey'] = params['api_key']
 
     command = demisto.command()
     demisto.debug(f'Command being called is {command}')
