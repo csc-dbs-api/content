@@ -33,7 +33,7 @@ script:
   dockerimage: demisto/python3:3.12.13.8319994
   isfetch: false
   commands:
-  - name: CSCTakedowns-controldetectionflowbyeventidandaction
+  - name: controldetectionflowbyeventidandaction
     description: Control detection flow by event ID and action
     arguments:
     - name: action
@@ -47,7 +47,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-fetchthedetectiondataandconverttopdf
+  - name: fetchthedetectiondataandconverttopdf
     description: Fetch the detection data and convert to pdf
     arguments:
     - name: eventId
@@ -61,21 +61,21 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-fetchthephishkitdatawithticketid
+  - name: fetchthephishkitdatawithticketid
     description: Fetch the phishkit data with ticketId
     arguments:
     - name: ticketId
       description: Ticket Id to fetch phishkit
       required: true
       isArray: false
-  - name: CSCTakedowns-fetchthescreenshotdatawithticketid
+  - name: fetchthescreenshotdatawithticketid
     description: Fetch the screenshot data with ticketId
     arguments:
     - name: ticketId
       description: Ticket Id to fetch screenshot
       required: true
       isArray: false
-  - name: CSCTakedowns-fetchtheticketdataandconverttopdf
+  - name: fetchtheticketdataandconverttopdf
     description: Fetch the ticket data and convert to pdf
     arguments:
     - name: ticketId
@@ -89,7 +89,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-gethtmlsourcecodeforaticket
+  - name: gethtmlsourcecodeforaticket
     description: Get HTML Source Code for a Ticket
     arguments:
     - name: ticketId
@@ -103,7 +103,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-getlistofands
+  - name: getlistofands
     description: Get list of Brands
     outputs:
     - type: Number
@@ -115,7 +115,7 @@ script:
     - type: Boolean
       contextPath: content.isActive
       description: ''
-  - name: CSCTakedowns-getlistoffraudtypes
+  - name: getlistoffraudtypes
     description: Get list of fraud types
     outputs:
     - type: Number
@@ -124,7 +124,7 @@ script:
     - type: String
       contextPath: content.fraudTypeName
       description: ''
-  - name: CSCTakedowns-listofworklogsforticketid
+  - name: listofworklogsforticketid
     description: List of work logs for ticket id
     arguments:
     - name: ticketId
@@ -138,7 +138,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-listtakedownevents
+  - name: listtakedownevents
     description: List Takedown Events
     arguments:
     - name: fromDate
@@ -164,7 +164,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-listtakedowneventswithfilters
+  - name: listtakedowneventswithfilters
     description: List Takedown events with filters
     arguments:
     - name: fromDate
@@ -214,7 +214,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-performanactiononasingletarget
+  - name: performanactiononasingletarget
     description: Perform an action on a single target
     arguments:
     - name: targetType
@@ -236,14 +236,14 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-retrieveeventscreenshotwitheventid
+  - name: retrieveeventscreenshotwitheventid
     description: Retrieve event screenshot with eventId
     arguments:
     - name: eventId
       description: Event Id to fetch screenshot details
       required: true
       isArray: false
-  - name: CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+  - name: retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
     description: Retrieve filtered list of monitoring results within specified timeframe
     arguments:
     - name: startDate
@@ -274,7 +274,7 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
+  - name: retrievelistofdetectionswithinspecifiedtimeframe
     description: Retrieve list of detections within specified timeframe
     arguments:
     - name: fromDate
@@ -313,7 +313,7 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
+  - name: retrievelistofmonitoringresultswithinspecifiedtimeframe
     description: Retrieve list of monitoring results within specified timeframe
     arguments:
     - name: startDate
@@ -332,14 +332,14 @@ script:
       description: Limit between 100 and 500, default is 100
       required: false
       isArray: false
-  - name: CSCTakedowns-retrievephishkitwitheventid
+  - name: retrievephishkitwitheventid
     description: Retrieve phishkit with eventId
     arguments:
     - name: eventId
       description: Event Id to fetch phishkit details
       required: true
       isArray: false
-  - name: CSCTakedowns-startorstopmonitoringforaspecificevent
+  - name: startorstopmonitoringforaspecificevent
     description: Start or stop monitoring for a specific event
     arguments:
     - name: action
@@ -353,7 +353,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: CSCTakedowns-updatetheactionwithticketid
+  - name: updatetheactionwithticketid
     description: Update the action with ticketId
     arguments:
     - name: action

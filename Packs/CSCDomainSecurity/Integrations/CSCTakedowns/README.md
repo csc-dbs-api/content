@@ -16,14 +16,14 @@ This integration was integrated and tested with version xx of CSCTakedowns.
 You can execute these commands from the CLI, as part of an automation, or in a playbook.
 After you successfully execute a command, a DBot message appears in the War Room with the command details.
 
-### CSCTakedowns-controldetectionflowbyeventidandaction
+### controldetectionflowbyeventidandaction
 
 ***
 Control detection flow by event ID and action
 
 #### Base Command
 
-`CSCTakedowns-controldetectionflowbyeventidandaction`
+`controldetectionflowbyeventidandaction`
 
 #### Input
 
@@ -38,14 +38,14 @@ Control detection flow by event ID and action
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-fetchthedetectiondataandconverttopdf
+### fetchthedetectiondataandconverttopdf
 
 ***
 Fetch the detection data and convert to pdf
 
 #### Base Command
 
-`CSCTakedowns-fetchthedetectiondataandconverttopdf`
+`fetchthedetectiondataandconverttopdf`
 
 #### Input
 
@@ -60,14 +60,14 @@ Fetch the detection data and convert to pdf
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-fetchthephishkitdatawithticketid
+### fetchthephishkitdatawithticketid
 
 ***
 Fetch the phishkit data with ticketId
 
 #### Base Command
 
-`CSCTakedowns-fetchthephishkitdatawithticketid`
+`fetchthephishkitdatawithticketid`
 
 #### Input
 
@@ -78,14 +78,14 @@ Fetch the phishkit data with ticketId
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-fetchthescreenshotdatawithticketid
+### fetchthescreenshotdatawithticketid
 
 ***
 Fetch the screenshot data with ticketId
 
 #### Base Command
 
-`CSCTakedowns-fetchthescreenshotdatawithticketid`
+`fetchthescreenshotdatawithticketid`
 
 #### Input
 
@@ -96,14 +96,14 @@ Fetch the screenshot data with ticketId
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-fetchtheticketdataandconverttopdf
+### fetchtheticketdataandconverttopdf
 
 ***
 Fetch the ticket data and convert to pdf
 
 #### Base Command
 
-`CSCTakedowns-fetchtheticketdataandconverttopdf`
+`fetchtheticketdataandconverttopdf`
 
 #### Input
 
@@ -118,14 +118,14 @@ Fetch the ticket data and convert to pdf
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-gethtmlsourcecodeforaticket
+### gethtmlsourcecodeforaticket
 
 ***
 Get HTML Source Code for a Ticket
 
 #### Base Command
 
-`CSCTakedowns-gethtmlsourcecodeforaticket`
+`gethtmlsourcecodeforaticket`
 
 #### Input
 
@@ -140,14 +140,14 @@ Get HTML Source Code for a Ticket
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-getlistofands
+### getlistofands
 
 ***
 Get list of Brands
 
 #### Base Command
 
-`CSCTakedowns-getlistofands`
+`getlistofands`
 
 #### Input
 
@@ -161,14 +161,14 @@ There are no input arguments for this command.
 | content.brandName | String |  | 
 | content.isActive | Boolean |  | 
 
-### CSCTakedowns-getlistoffraudtypes
+### getlistoffraudtypes
 
 ***
 Get list of fraud types
 
 #### Base Command
 
-`CSCTakedowns-getlistoffraudtypes`
+`getlistoffraudtypes`
 
 #### Input
 
@@ -181,14 +181,14 @@ There are no input arguments for this command.
 | content.fraudTypeId | Number |  | 
 | content.fraudTypeName | String |  | 
 
-### CSCTakedowns-listofworklogsforticketid
+### listofworklogsforticketid
 
 ***
 List of work logs for ticket id
 
 #### Base Command
 
-`CSCTakedowns-listofworklogsforticketid`
+`listofworklogsforticketid`
 
 #### Input
 
@@ -203,14 +203,14 @@ List of work logs for ticket id
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-listtakedownevents
+### listtakedownevents
 
 ***
 List Takedown Events
 
 #### Base Command
 
-`CSCTakedowns-listtakedownevents`
+`listtakedownevents`
 
 #### Input
 
@@ -228,14 +228,14 @@ List Takedown Events
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-listtakedowneventswithfilters
+### listtakedowneventswithfilters
 
 ***
 List Takedown events with filters
 
 #### Base Command
 
-`CSCTakedowns-listtakedowneventswithfilters`
+`listtakedowneventswithfilters`
 
 #### Input
 
@@ -259,14 +259,14 @@ List Takedown events with filters
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-performanactiononasingletarget
+### performanactiononasingletarget
 
 ***
 Perform an action on a single target
 
 #### Base Command
 
-`CSCTakedowns-performanactiononasingletarget`
+`performanactiononasingletarget`
 
 #### Input
 
@@ -283,14 +283,14 @@ Perform an action on a single target
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-retrieveeventscreenshotwitheventid
+### retrieveeventscreenshotwitheventid
 
 ***
 Retrieve event screenshot with eventId
 
 #### Base Command
 
-`CSCTakedowns-retrieveeventscreenshotwitheventid`
+`retrieveeventscreenshotwitheventid`
 
 #### Input
 
@@ -301,14 +301,14 @@ Retrieve event screenshot with eventId
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+### retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
 
 ***
 Retrieve filtered list of monitoring results within specified timeframe
 
 #### Base Command
 
-`CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe`
+`retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe`
 
 #### Input
 
@@ -325,14 +325,14 @@ Retrieve filtered list of monitoring results within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
+### retrievelistofdetectionswithinspecifiedtimeframe
 
 ***
 Retrieve list of detections within specified timeframe
 
 #### Base Command
 
-`CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe`
+`retrievelistofdetectionswithinspecifiedtimeframe`
 
 #### Input
 
@@ -351,14 +351,14 @@ Retrieve list of detections within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
+### retrievelistofmonitoringresultswithinspecifiedtimeframe
 
 ***
 Retrieve list of monitoring results within specified timeframe
 
 #### Base Command
 
-`CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe`
+`retrievelistofmonitoringresultswithinspecifiedtimeframe`
 
 #### Input
 
@@ -372,14 +372,14 @@ Retrieve list of monitoring results within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-retrievephishkitwitheventid
+### retrievephishkitwitheventid
 
 ***
 Retrieve phishkit with eventId
 
 #### Base Command
 
-`CSCTakedowns-retrievephishkitwitheventid`
+`retrievephishkitwitheventid`
 
 #### Input
 
@@ -390,14 +390,14 @@ Retrieve phishkit with eventId
 #### Context Output
 
 There is no context output for this command.
-### CSCTakedowns-startorstopmonitoringforaspecificevent
+### startorstopmonitoringforaspecificevent
 
 ***
 Start or stop monitoring for a specific event
 
 #### Base Command
 
-`CSCTakedowns-startorstopmonitoringforaspecificevent`
+`startorstopmonitoringforaspecificevent`
 
 #### Input
 
@@ -412,14 +412,14 @@ Start or stop monitoring for a specific event
 | content.message | String |  | 
 | content.status | String |  | 
 
-### CSCTakedowns-updatetheactionwithticketid
+### updatetheactionwithticketid
 
 ***
 Update the action with ticketId
 
 #### Base Command
 
-`CSCTakedowns-updatetheactionwithticketid`
+`updatetheactionwithticketid`
 
 #### Input
 
