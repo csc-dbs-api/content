@@ -140,14 +140,14 @@ Get HTML Source Code for a Ticket
 | content.message | String |  | 
 | content.status | String |  | 
 
-### getlistofands
+### getlistofbrands
 
 ***
 Get list of Brands
 
 #### Base Command
 
-`getlistofands`
+`getlistofbrands`
 
 #### Input
 

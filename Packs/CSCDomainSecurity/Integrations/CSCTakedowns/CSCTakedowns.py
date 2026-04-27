@@ -49,7 +49,7 @@ class Client(BaseClient):
 
         return response
 
-    def getlistofands_request(self):
+    def getlistofbrands_request(self):
         headers = self._headers
 
         response = self._http_request('get', 'brands', headers=headers)
@@ -233,9 +233,9 @@ def gethtmlsourcecodeforaticket_command(client: Client, args: Dict[str, Any]) ->
     return command_results
 
 
-def getlistofands_command(client: Client, args: Dict[str, Any]) -> CommandResults:
+def getlistofbrands_command(client: Client, args: Dict[str, Any]) -> CommandResults:
 
-    response = client.getlistofands_request()
+    response = client.getlistofbrands_request()
     command_results = CommandResults(
         outputs_prefix='',
         outputs_key_field='',
@@ -473,7 +473,7 @@ def main() -> None:
 			'fetchthescreenshotdatawithticketid': fetchthescreenshotdatawithticketid_command,
 			'fetchtheticketdataandconverttopdf': fetchtheticketdataandconverttopdf_command,
 			'gethtmlsourcecodeforaticket': gethtmlsourcecodeforaticket_command,
-			'getlistofands': getlistofands_command,
+			'getlistofbrands': getlistofbrands_command,
 			'getlistoffraudtypes': getlistoffraudtypes_command,
 			'listofworklogsforticketid': listofworklogsforticketid_command,
 			'listtakedownevents': listtakedownevents_command,

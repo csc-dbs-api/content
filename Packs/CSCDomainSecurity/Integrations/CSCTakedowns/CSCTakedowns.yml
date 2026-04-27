@@ -103,7 +103,7 @@ script:
     - type: String
       contextPath: content.status
       description: ''
-  - name: getlistofands
+  - name: getlistofbrands
     description: Get list of Brands
     outputs:
     - type: Number
