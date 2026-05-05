@@ -7,8 +7,8 @@ category: IT Services
 description: This is a CSCTakedowns api for organizations.
 configuration:
 - name: url
-  display: Server URL (e.g. /dbs/fraud-protection/v1/fraud-protection-api/external/v3)
-  defaultvalue: /dbs/fraud-protection/v1/fraud-protection-api/external/v3
+  display: Server URL
+  defaultvalue: https://apis.cscglobal.com/dbs/fraud-protection/v1/fraud-protection-api/external/v3
   type: 0
   required: true
 - name: api_key
