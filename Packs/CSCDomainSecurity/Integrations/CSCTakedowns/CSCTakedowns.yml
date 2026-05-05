@@ -1,10 +1,10 @@
 commonfields:
-  id: Anti Fraud API
+  id: CSCTakedowns
   version: -1
-name: Anti Fraud API
-display: Anti Fraud API
-category: Utilities
-description: This is an anti fraud external api for organizations.
+name: CSCTakedowns
+display: CSCTakedowns
+category: IT Services
+description: This is a CSCTakedowns api for organizations.
 configuration:
 - name: url
   display: Server URL (e.g. /dbs/fraud-protection/v1/fraud-protection-api/external/v3)
