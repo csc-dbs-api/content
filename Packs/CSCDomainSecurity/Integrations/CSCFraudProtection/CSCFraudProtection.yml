@@ -1,8 +1,8 @@
 commonfields:
-  id: Anti Fraud API
+  id: CSCFraudProtection
   version: -1
-name: Anti Fraud API
-display: Anti Fraud API
+name: CSCFraudProtection
+display: CSCFraudProtection
 category: IT Services
 description: This is an anti fraud external api for organizations.
 configuration:
