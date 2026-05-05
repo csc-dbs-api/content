@@ -1,5 +1,5 @@
-id: CSCTakedowns_Test
-name: CSCTakedowns_Test
+id: CSCTakedowns
+name: CSCTakedowns
 version: -1
 fromversion: 4.5.0
 starttaskid: '0'
@@ -55,9 +55,9 @@ tasks:
     task:
       id: '2'
       version: -1
-      name: CSCTakedowns-controldetectionflowbyeventidandaction
+      name: csctakedowns-fetchthephishkitdatawithticketid
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-controldetectionflowbyeventidandaction
+      script: Anti Fraud API|||csctakedowns-fetchthephishkitdatawithticketid
       type: regular
       iscommand: true
       brand: ''
@@ -72,34 +72,23 @@ tasks:
     ignoreworker: false
     skipunavailable: false
   '3':
-    id: '3'
+    id: 3
     taskid: '3'
-    type: condition
+    type: regular
     task:
       id: '3'
       version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
+      name: csctakedowns-fetchthescreenshotdatawithticketid
       description: ''
+      script: Anti Fraud API|||csctakedowns-fetchthescreenshotdatawithticketid
+      type: regular
+      iscommand: true
       brand: ''
     nexttasks:
-      yes:
+      '#none#':
       - '4'
+    scriptarguments: {}
     separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
     view: '{"position":{"x":50,"y":600}}'
     note: false
     timertriggers: []
@@ -112,9 +101,9 @@ tasks:
     task:
       id: '4'
       version: -1
-      name: CSCTakedowns-fetchthedetectiondataandconverttopdf
+      name: csctakedowns-fetchtheticketdataandconverttopdf
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-fetchthedetectiondataandconverttopdf
+      script: Anti Fraud API|||csctakedowns-fetchtheticketdataandconverttopdf
       type: regular
       iscommand: true
       brand: ''
@@ -150,12 +139,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: message
+              simple: CSCTakedowns.message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: status
+              simple: CSCTakedowns.status
             iscontext: true
     view: '{"position":{"x":50,"y":1000}}'
     note: false
@@ -169,9 +158,9 @@ tasks:
     task:
       id: '6'
       version: -1
-      name: CSCTakedowns-fetchthephishkitdatawithticketid
+      name: csctakedowns-gethtmlsourcecodeforaticket
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-fetchthephishkitdatawithticketid
+      script: Anti Fraud API|||csctakedowns-gethtmlsourcecodeforaticket
       type: regular
       iscommand: true
       brand: ''
@@ -186,23 +175,34 @@ tasks:
     ignoreworker: false
     skipunavailable: false
   '7':
-    id: 7
+    id: '7'
     taskid: '7'
-    type: regular
+    type: condition
     task:
       id: '7'
       version: -1
-      name: CSCTakedowns-fetchthescreenshotdatawithticketid
+      name: Verify Outputs
+      type: condition
+      iscommand: false
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-fetchthescreenshotdatawithticketid
-      type: regular
-      iscommand: true
       brand: ''
     nexttasks:
-      '#none#':
+      yes:
       - '8'
-    scriptarguments: {}
     separatecontext: false
+    conditions:
+    - label: yes
+      condition:
+      - - operator: isNotEmpty
+          left:
+            value:
+              simple: CSCTakedowns.message
+            iscontext: true
+      - - operator: isNotEmpty
+          left:
+            value:
+              simple: CSCTakedowns.status
+            iscontext: true
     view: '{"position":{"x":50,"y":1400}}'
     note: false
     timertriggers: []
@@ -215,9 +215,9 @@ tasks:
     task:
       id: '8'
       version: -1
-      name: CSCTakedowns-fetchtheticketdataandconverttopdf
+      name: csctakedowns-listofworklogsforticketid
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-fetchtheticketdataandconverttopdf
+      script: Anti Fraud API|||csctakedowns-listofworklogsforticketid
       type: regular
       iscommand: true
       brand: ''
@@ -253,12 +253,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: message
+              simple: CSCTakedowns.message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: status
+              simple: CSCTakedowns.status
             iscontext: true
     view: '{"position":{"x":50,"y":1800}}'
     note: false
@@ -272,9 +272,9 @@ tasks:
     task:
       id: '10'
       version: -1
-      name: CSCTakedowns-gethtmlsourcecodeforaticket
+      name: csctakedowns-listtakedownevents
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-gethtmlsourcecodeforaticket
+      script: Anti Fraud API|||csctakedowns-listtakedownevents
       type: regular
       iscommand: true
       brand: ''
@@ -310,12 +310,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: message
+              simple: CSCTakedowns.message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: status
+              simple: CSCTakedowns.status
             iscontext: true
     view: '{"position":{"x":50,"y":2200}}'
     note: false
@@ -329,9 +329,9 @@ tasks:
     task:
       id: '12'
       version: -1
-      name: CSCTakedowns-getlistofands
+      name: csctakedowns-listtakedowneventswithfilters
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-getlistofands
+      script: Anti Fraud API|||csctakedowns-listtakedowneventswithfilters
       type: regular
       iscommand: true
       brand: ''
@@ -367,17 +367,12 @@ tasks:
       - - operator: isNotEmpty
           left:
             value:
-              simple: brandId
+              simple: CSCTakedowns.message
             iscontext: true
       - - operator: isNotEmpty
           left:
             value:
-              simple: brandName
-            iscontext: true
-      - - operator: isExists
-          left:
-            value:
-              simple: isActive
+              simple: CSCTakedowns.status
             iscontext: true
     view: '{"position":{"x":50,"y":2600}}'
     note: false
@@ -391,9 +386,9 @@ tasks:
     task:
       id: '14'
       version: -1
-      name: CSCTakedowns-getlistoffraudtypes
+      name: csctakedowns-updatetheactionwithticketid
       description: ''
-      script: Anti Fraud API|||CSCTakedowns-getlistoffraudtypes
+      script: Anti Fraud API|||csctakedowns-updatetheactionwithticketid
       type: regular
       iscommand: true
       brand: ''
@@ -410,466 +405,9 @@ tasks:
   '15':
     id: '15'
     taskid: '15'
-    type: condition
-    task:
-      id: '15'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '16'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: fraudTypeId
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: fraudTypeName
-            iscontext: true
-    view: '{"position":{"x":50,"y":3000}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '16':
-    id: 16
-    taskid: '16'
-    type: regular
-    task:
-      id: '16'
-      version: -1
-      name: CSCTakedowns-listofworklogsforticketid
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-listofworklogsforticketid
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '17'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":3200}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '17':
-    id: '17'
-    taskid: '17'
-    type: condition
-    task:
-      id: '17'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '18'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
-    view: '{"position":{"x":50,"y":3400}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '18':
-    id: 18
-    taskid: '18'
-    type: regular
-    task:
-      id: '18'
-      version: -1
-      name: CSCTakedowns-listtakedownevents
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-listtakedownevents
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '19'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":3600}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '19':
-    id: '19'
-    taskid: '19'
-    type: condition
-    task:
-      id: '19'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '20'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
-    view: '{"position":{"x":50,"y":3800}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '20':
-    id: 20
-    taskid: '20'
-    type: regular
-    task:
-      id: '20'
-      version: -1
-      name: CSCTakedowns-listtakedowneventswithfilters
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-listtakedowneventswithfilters
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '21'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":4000}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '21':
-    id: '21'
-    taskid: '21'
-    type: condition
-    task:
-      id: '21'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '22'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
-    view: '{"position":{"x":50,"y":4200}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '22':
-    id: 22
-    taskid: '22'
-    type: regular
-    task:
-      id: '22'
-      version: -1
-      name: CSCTakedowns-performanactiononasingletarget
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-performanactiononasingletarget
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '23'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":4400}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '23':
-    id: '23'
-    taskid: '23'
-    type: condition
-    task:
-      id: '23'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '24'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
-    view: '{"position":{"x":50,"y":4600}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '24':
-    id: 24
-    taskid: '24'
-    type: regular
-    task:
-      id: '24'
-      version: -1
-      name: CSCTakedowns-retrieveeventscreenshotwitheventid
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-retrieveeventscreenshotwitheventid
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '25'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":4800}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '25':
-    id: 25
-    taskid: '25'
-    type: regular
-    task:
-      id: '25'
-      version: -1
-      name: CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '26'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":5000}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '26':
-    id: 26
-    taskid: '26'
-    type: regular
-    task:
-      id: '26'
-      version: -1
-      name: CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-retrievelistofdetectionswithinspecifiedtimeframe
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '27'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":5200}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '27':
-    id: 27
-    taskid: '27'
-    type: regular
-    task:
-      id: '27'
-      version: -1
-      name: CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-retrievelistofmonitoringresultswithinspecifiedtimeframe
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '28'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":5400}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '28':
-    id: 28
-    taskid: '28'
-    type: regular
-    task:
-      id: '28'
-      version: -1
-      name: CSCTakedowns-retrievephishkitwitheventid
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-retrievephishkitwitheventid
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '29'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":5600}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '29':
-    id: 29
-    taskid: '29'
-    type: regular
-    task:
-      id: '29'
-      version: -1
-      name: CSCTakedowns-startorstopmonitoringforaspecificevent
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-startorstopmonitoringforaspecificevent
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '30'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":5800}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '30':
-    id: '30'
-    taskid: '30'
-    type: condition
-    task:
-      id: '30'
-      version: -1
-      name: Verify Outputs
-      type: condition
-      iscommand: false
-      description: ''
-      brand: ''
-    nexttasks:
-      yes:
-      - '31'
-    separatecontext: false
-    conditions:
-    - label: yes
-      condition:
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: message
-            iscontext: true
-      - - operator: isNotEmpty
-          left:
-            value:
-              simple: status
-            iscontext: true
-    view: '{"position":{"x":50,"y":6000}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '31':
-    id: 31
-    taskid: '31'
-    type: regular
-    task:
-      id: '31'
-      version: -1
-      name: CSCTakedowns-updatetheactionwithticketid
-      description: ''
-      script: Anti Fraud API|||CSCTakedowns-updatetheactionwithticketid
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '32'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":6200}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '32':
-    id: '32'
-    taskid: '32'
     type: title
     task:
-      id: '32'
+      id: '15'
       version: -1
       name: Test Done
       type: title
@@ -877,7 +415,7 @@ tasks:
       brand: ''
       description: ''
     separatecontext: false
-    view: '{"position":{"x":50,"y":6400}}'
+    view: '{"position":{"x":50,"y":3000}}'
     note: false
     timertriggers: []
     ignoreworker: false

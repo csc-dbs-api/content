@@ -1,7 +1,7 @@
 import pytest
 import io
 from CommonServerPython import *
-from CSCTakedowns import Client, fetchthephishkitdatawithticketid_command, fetchthescreenshotdatawithticketid_command, fetchtheticketdataandconverttopdf_command, gethtmlsourcecodeforaticket_command, listofworklogsforticketid_command, listtakedownevents_command, listtakedowneventswithfilters_command, updatetheactionwithticketid_command
+from CSCFraudProtection import Client, controldetectionflowbyeventidandaction_command, fetchthedetectiondataandconverttopdf_command, fetchthephishkitdatawithticketid_command, fetchthescreenshotdatawithticketid_command, fetchtheticketdataandconverttopdf_command, gethtmlsourcecodeforaticket_command, getlistofbrands_command, getlistoffraudtypes_command, listofworklogsforticketid_command, listtakedownevents_command, listtakedowneventswithfilters_command, performanactiononasingletarget_command, retrieveeventscreenshotwitheventid_command, retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_command, retrievelistofdetectionswithinspecifiedtimeframe_command, retrievelistofmonitoringresultswithinspecifiedtimeframe_command, retrievephishkitwitheventid_command, startorstopmonitoringforaspecificevent_command, updatetheactionwithticketid_command
 SERVER_URL = 'https://test_url.com'
 
 
@@ -147,4 +147,42 @@ def test_listofworklogsforticketid_command(client, requests_mock):
         assert results.outputs_key_field == ''
         assert results.outputs == mock_results.get('outputs')
         assert results.raw_response == mock_response_updatetheactionwithticketid_request
+
+    def test_getlistofbrands_command(client, requests_mock):
+            """
+                When:
+                Given:
+                Then:
+                """
+            mock_response_getlistofbrands_request = util_load_json(
+                './test_data/outputs/getlistofbrands_request.json')
+            mock_results = util_load_json(
+                './test_data/outputs/getlistofbrands_command.json')
+            requests_mock.post(SERVER_URL, json=mock_response_getlistofbrands_request)
+            results = getlistofbrands_command(client=client, args=args
+                                                               )
+            assert results.outputs_prefix == 'CSCFraudProtection'
+            assert results.outputs_key_field == ''
+            assert results.outputs == mock_results.get('outputs')
+            assert results.raw_response == mock_response_getlistofbrands_request
+
+    def test_getlistoffraudtypes_command(client, requests_mock):
+            """
+                When:
+                Given:
+                Then:
+                """
+            mock_response_getlistoffraudtypes_request = util_load_json(
+                './test_data/outputs/getlistoffraudtypes_request.json')
+            mock_results = util_load_json(
+                './test_data/outputs/getlistoffraudtypes_command.json')
+            requests_mock.post(SERVER_URL, json=mock_response_getlistoffraudtypes_request)
+            results = getlistoffraudtypes_command(client=client, args=args
+                                                               )
+            assert results.outputs_prefix == 'CSCFraudProtection'
+            assert results.outputs_key_field == ''
+            assert results.outputs == mock_results.get('outputs')
+            assert results.raw_response == mock_response_getlistoffraudtypes_request
+
+
 
