@@ -5,13 +5,19 @@
 !listofworklogsforticketid ticketId=123
 !listtakedowneventswithfilters fromDate="2026-01-01" toDate="2026-03-01"
 !updatetheactionwithticketid action="OPEN"
+
 !getlistofbrands
 !getlistoffraudtypes
+
 !retrievelistofdetectionswithinspecifiedtimeframe fromDate="2026-01-01" toDate="2026-03-01"
 !retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe fromDate="2026-01-01" toDate="2026-03-01" brand="BrandA" fraudType="FraudTypeA"
 !retrievelistofmonitoringresultswithinspecifiedtimeframe fromDate="2026-01-01" toDate="2026-03-01"
+
 !fetchthedetectiondataandconverttopdf detectionId=123
 !fetchthescreenshotdataforadetectionid detectionId=123
 !gethtmlsourcecodeforadetectionid detectionId=123
 !listofworklogsfordetectionid detectionId=123
 !updatetheactionfordetectionid detectionId=123 action="OPEN"
+
+!startorstopmonitoringforaspecificevent eventId=123 action="START"
+!listtakedowneventswithfilters fromDate="2026-01-01" toDate="2026-03-01"
