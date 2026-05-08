@@ -55,7 +55,6 @@ class Client(BaseClient):
         return self._http_request('put', 'takedowns/control', params=params, headers=headers)
 
 
-# ---------------- COMMANDS ---------------- #
 
 def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     response = client.fetchthephishkitdatawithticketid_request(args.get('ticketId'))

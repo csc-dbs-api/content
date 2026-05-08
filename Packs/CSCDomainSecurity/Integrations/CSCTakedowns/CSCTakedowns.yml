@@ -4,7 +4,7 @@ commonfields:
 name: CSCTakedowns
 display: CSCTakedowns
 category: IT Services
-description: This is a CSCTakedowns api for organizations.
+description: This is CSCTakedowns api for organizations.
 configuration:
 - name: url
   display: Server URL

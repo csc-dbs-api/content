@@ -20,3 +20,4 @@ The actions included in this pack allow the user to manage domains from Cortex X
 - [Visit the CSC website](https://www.cscdbs.com/)
 - [See the api page for CSCDomainManager](https://www.cscglobal.com/cscglobal/docs/dbs/domainmanager/api-v2/#/)
 - [See the api page for CSCTakedowns and CSCFraudProtection](https://apis.cscglobal.com/dbs/fraud-protection/v1/fraud-protection-api/swagger/external/docs?APIKey=l7ace9a8f49d68477bac1db9b77155d7a0)
+- For any questions related to CSCTakedowns and CSCFraudProtection, please contact Email: phishing-response@cscglobal.com

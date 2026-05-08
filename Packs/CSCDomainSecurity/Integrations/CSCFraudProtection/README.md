@@ -16,14 +16,14 @@ This integration was integrated and tested with version xx of Anti Fraud API.
 You can execute these commands from the CLI, as part of an automation, or in a playbook.
 After you successfully execute a command, a DBot message appears in the War Room with the command details.
 
-### cscantifraud-controldetectionflowbyeventidandaction
+### csc-controldetectionflowbyeventidandaction
 
 ***
 Control detection flow by event ID and action
 
 #### Base Command
 
-`cscantifraud-controldetectionflowbyeventidandaction`
+`csc-controldetectionflowbyeventidandaction`
 
 #### Input
 
@@ -38,14 +38,14 @@ Control detection flow by event ID and action
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-fetchthedetectiondataandconverttopdf
+### csc-fetchthedetectiondataandconverttopdf
 
 ***
 Fetch the detection data and convert to pdf
 
 #### Base Command
 
-`cscantifraud-fetchthedetectiondataandconverttopdf`
+`csc-fetchthedetectiondataandconverttopdf`
 
 #### Input
 
@@ -60,14 +60,14 @@ Fetch the detection data and convert to pdf
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-fetchthephishkitdatawithticketid
+### csc-fetchthephishkitdatawithticketid
 
 ***
 Fetch the phishkit data with ticketId
 
 #### Base Command
 
-`cscantifraud-fetchthephishkitdatawithticketid`
+`csc-fetchthephishkitdatawithticketid`
 
 #### Input
 
@@ -78,14 +78,14 @@ Fetch the phishkit data with ticketId
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-fetchthescreenshotdatawithticketid
+### csc-fetchthescreenshotdatawithticketid
 
 ***
 Fetch the screenshot data with ticketId
 
 #### Base Command
 
-`cscantifraud-fetchthescreenshotdatawithticketid`
+`csc-fetchthescreenshotdatawithticketid`
 
 #### Input
 
@@ -96,14 +96,14 @@ Fetch the screenshot data with ticketId
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-fetchtheticketdataandconverttopdf
+### csc-fetchtheticketdataandconverttopdf
 
 ***
 Fetch the ticket data and convert to pdf
 
 #### Base Command
 
-`cscantifraud-fetchtheticketdataandconverttopdf`
+`csc-fetchtheticketdataandconverttopdf`
 
 #### Input
 
@@ -118,14 +118,14 @@ Fetch the ticket data and convert to pdf
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-gethtmlsourcecodeforaticket
+### csc-gethtmlsourcecodeforaticket
 
 ***
 Get HTML Source Code for a Ticket
 
 #### Base Command
 
-`cscantifraud-gethtmlsourcecodeforaticket`
+`csc-gethtmlsourcecodeforaticket`
 
 #### Input
 
@@ -140,14 +140,14 @@ Get HTML Source Code for a Ticket
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-getlistofbrands
+### csc-getlistofbrands
 
 ***
 Get list of Brands
 
 #### Base Command
 
-`cscantifraud-getlistofbrands`
+`csc-getlistofbrands`
 
 #### Input
 
@@ -161,14 +161,14 @@ There are no input arguments for this command.
 | CSCFraudProtection.brandName | String |  | 
 | CSCFraudProtection.isActive | Boolean |  | 
 
-### cscantifraud-getlistoffraudtypes
+### csc-getlistoffraudtypes
 
 ***
 Get list of fraud types
 
 #### Base Command
 
-`cscantifraud-getlistoffraudtypes`
+`csc-getlistoffraudtypes`
 
 #### Input
 
@@ -181,14 +181,14 @@ There are no input arguments for this command.
 | CSCFraudProtection.fraudTypeId | Number |  | 
 | CSCFraudProtection.fraudTypeName | String |  | 
 
-### cscantifraud-listofworklogsforticketid
+### csc-listofworklogsforticketid
 
 ***
 List of work logs for ticket id
 
 #### Base Command
 
-`cscantifraud-listofworklogsforticketid`
+`csc-listofworklogsforticketid`
 
 #### Input
 
@@ -203,14 +203,14 @@ List of work logs for ticket id
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-listtakedownevents
+### csc-listtakedownevents
 
 ***
 List Takedown Events
 
 #### Base Command
 
-`cscantifraud-listtakedownevents`
+`csc-listtakedownevents`
 
 #### Input
 
@@ -228,14 +228,14 @@ List Takedown Events
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-listtakedowneventswithfilters
+### csc-listtakedowneventswithfilters
 
 ***
 List Takedown events with filters
 
 #### Base Command
 
-`cscantifraud-listtakedowneventswithfilters`
+`csc-listtakedowneventswithfilters`
 
 #### Input
 
@@ -259,14 +259,14 @@ List Takedown events with filters
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-performanactiononasingletarget
+### csc-performanactiononasingletarget
 
 ***
 Perform an action on a single target
 
 #### Base Command
 
-`cscantifraud-performanactiononasingletarget`
+`csc-performanactiononasingletarget`
 
 #### Input
 
@@ -283,14 +283,14 @@ Perform an action on a single target
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-retrieveeventscreenshotwitheventid
+### csc-retrieveeventscreenshotwitheventid
 
 ***
 Retrieve event screenshot with eventId
 
 #### Base Command
 
-`cscantifraud-retrieveeventscreenshotwitheventid`
+`csc-retrieveeventscreenshotwitheventid`
 
 #### Input
 
@@ -301,14 +301,14 @@ Retrieve event screenshot with eventId
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+### csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
 
 ***
 Retrieve filtered list of monitoring results within specified timeframe
 
 #### Base Command
 
-`cscantifraud-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe`
+`csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe`
 
 #### Input
 
@@ -325,14 +325,14 @@ Retrieve filtered list of monitoring results within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-retrievelistofdetectionswithinspecifiedtimeframe
+### csc-retrievelistofdetectionswithinspecifiedtimeframe
 
 ***
 Retrieve list of detections within specified timeframe
 
 #### Base Command
 
-`cscantifraud-retrievelistofdetectionswithinspecifiedtimeframe`
+`csc-retrievelistofdetectionswithinspecifiedtimeframe`
 
 #### Input
 
@@ -351,14 +351,14 @@ Retrieve list of detections within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-retrievelistofmonitoringresultswithinspecifiedtimeframe
+### csc-retrievelistofmonitoringresultswithinspecifiedtimeframe
 
 ***
 Retrieve list of monitoring results within specified timeframe
 
 #### Base Command
 
-`cscantifraud-retrievelistofmonitoringresultswithinspecifiedtimeframe`
+`csc-retrievelistofmonitoringresultswithinspecifiedtimeframe`
 
 #### Input
 
@@ -372,14 +372,14 @@ Retrieve list of monitoring results within specified timeframe
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-retrievephishkitwitheventid
+### csc-retrievephishkitwitheventid
 
 ***
 Retrieve phishkit with eventId
 
 #### Base Command
 
-`cscantifraud-retrievephishkitwitheventid`
+`csc-retrievephishkitwitheventid`
 
 #### Input
 
@@ -390,14 +390,14 @@ Retrieve phishkit with eventId
 #### Context Output
 
 There is no context output for this command.
-### cscantifraud-startorstopmonitoringforaspecificevent
+### csc-startorstopmonitoringforaspecificevent
 
 ***
 Start or stop monitoring for a specific event
 
 #### Base Command
 
-`cscantifraud-startorstopmonitoringforaspecificevent`
+`csc-startorstopmonitoringforaspecificevent`
 
 #### Input
 
@@ -412,14 +412,14 @@ Start or stop monitoring for a specific event
 | CSCFraudProtection.message | String |  | 
 | CSCFraudProtection.status | String |  | 
 
-### cscantifraud-updatetheactionwithticketid
+### csc-updatetheactionwithticketid
 
 ***
 Update the action with ticketId
 
 #### Base Command
 
-`cscantifraud-updatetheactionwithticketid`
+`csc-updatetheactionwithticketid`
 
 #### Input
 
