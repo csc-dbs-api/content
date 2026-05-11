@@ -1,4 +1,5 @@
 Integration Author: CSC
+
 Support and maintenance for this integration are provided by the author. Please use the following contact details:
 Email: phishing-response@cscglobal.com
 URL: https://www.cscdbs.com
