@@ -26,6 +26,11 @@ configuration:
   defaultvalue: 'false'
   type: 8
   required: false
+- name: support_email
+  display: Support Contact Email
+  defaultvalue: 'phishing-response@cscglobal.com'
+  type: 0
+  required: false
 script:
   script: ''
   type: python
