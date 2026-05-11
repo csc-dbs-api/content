@@ -26,7 +26,7 @@ configuration:
   defaultvalue: 'false'
   type: 8
   required: false
-- name: support_email
+- name: email
   display: Support Contact Email
   defaultvalue: 'phishing-response@cscglobal.com'
   type: 0
