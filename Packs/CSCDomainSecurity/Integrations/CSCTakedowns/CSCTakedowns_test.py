@@ -23,15 +23,13 @@ def test_fetchthephishkitdatawithticketid_command(client, requests_mock):
         """
     args = {'ticketId': '123'}
     mock_response_request = util_load_json(
-        './test_data/outputs/fetchthephishkitdatawithticketid_request.json')
+        './test_data/fetchthephishkitdatawithticketid_request.json')
     mock_results = util_load_json(
-        './test_data/outputs/fetchthephishkitdatawithticketid_command.json')
-    requests_mock.post(SERVER_URL, json=mock_response_request)
+        './test_data/fetchthephishkitdatawithticketid_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/phishkit", json=mock_response_request)
     results = fetchthephishkitdatawithticketid_command(client=client, args=args)
-    assert results.outputs_prefix == 'CSCFraudProtection'
-    assert results.outputs_key_field == ''
-    assert results.outputs == mock_results.get('outputs')
-    assert results.raw_response == mock_response_fetchthephishkitdatawithticketid_request
+    assert results.outputs_prefix == 'CSCTakedowns'
+    assert results.raw_response == mock_response_request
 
 def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
     """
@@ -41,17 +39,15 @@ def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
         """
     args = {'ticketId': '123'}
     mock_response_request = util_load_json(
-        './test_data/outputs/fetchthescreenshotdatawithticketid_request.json')
+        './test_data/fetchthescreenshotdatawithticketid_request.json')
     mock_results = util_load_json(
-        './test_data/outputs/fetchthescreenshotdatawithticketid_command.json')
-    requests_mock.post(SERVER_URL, json=mock_response_fetchthescreenshotdatawithticketid_request)
+        './test_data/fetchthescreenshotdatawithticketid_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/screenshot", json=mock_response_request)
     results = fetchthescreenshotdatawithticketid_command(client=client, args=args
                                                        )
-    assert results.outputs_prefix == 'CSCFraudProtection'
-    assert results.outputs_key_field == ''
-    assert results.outputs == mock_results.get('outputs')
+    assert results.outputs_prefix == 'CSCTakedowns'
     assert results.raw_response == mock_response_request
-
+#
 def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
     """
         When:
@@ -60,34 +56,30 @@ def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
         """
     args = {'ticketId': '123'}
     mock_response_request = util_load_json(
-        './test_data/outputs/fetchtheticketdataandconverttopdf_request.json')
+        './test_data/fetchtheticketdataandconverttopdf_request.json')
     mock_results = util_load_json(
-        './test_data/outputs/fetchtheticketdataandconverttopdf_command.json')
-    requests_mock.post(SERVER_URL, json=mock_response_request)
+        './test_data/fetchtheticketdataandconverttopdf_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/pdf", json=mock_response_request)
     results = fetchtheticketdataandconverttopdf_command(client=client, args=args
                                                        )
-    assert results.outputs_prefix == 'CSCFraudProtection'
-    assert results.outputs_key_field == ''
-    assert results.outputs == mock_results.get('outputs')
+    assert results.outputs_prefix == 'CSCTakedowns'
     assert results.raw_response == mock_response_request
-
+#
 def test_gethtmlsourcecodeforaticket_command(client, requests_mock):
     """
         When:
         Given:
         Then:
         """
-    args = {'ticketId': '123'}
+    args = {'ticketId': '0'}
     mock_response_request = util_load_json(
-        './test_data/outputs/gethtmlsourcecodeforaticket_request.json')
+        './test_data/gethtmlsourcecodeforaticket_request.json')
     mock_results = util_load_json(
-        './test_data/outputs/gethtmlsourcecodeforaticket_command.json')
-    requests_mock.post(SERVER_URL, json=mock_response_request)
+        './test_data/gethtmlsourcecodeforaticket_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/html/{args['ticketId']}", json=mock_response_request)
     results = gethtmlsourcecodeforaticket_command(client=client, args=args
                                                        )
-    assert results.outputs_prefix == 'CSCFraudProtection'
-    assert results.outputs_key_field == ''
-    assert results.outputs == mock_results.get('outputs')
+    assert results.outputs_prefix == 'CSCTakedowns'
     assert results.raw_response == mock_response_request
 
 def test_listofworklogsforticketid_command(client, requests_mock):
@@ -96,39 +88,50 @@ def test_listofworklogsforticketid_command(client, requests_mock):
         Given:
         Then:
         """
-    args = {'ticketId': '123'}
+    args = {'ticketId': '0'}
     mock_response_request = util_load_json(
-        './test_data/outputs/listofworklogsforticketid_request.json')
+        './test_data/listofworklogsforticketid_request.json')
     mock_results = util_load_json(
-        './test_data/outputs/listofworklogsforticketid_command.json')
-    requests_mock.post(SERVER_URL, json=mock_response_request)
+        './test_data/listofworklogsforticketid_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/worklogs", json=mock_response_request)
     results = listofworklogsforticketid_command(client=client, args=args
                                                        )
-    assert results.outputs_prefix == 'CSCFraudProtection'
-    assert results.outputs_key_field == ''
-    assert results.outputs == mock_results.get('outputs')
+    assert results.outputs_prefix == 'CSCTakedowns'
     assert results.raw_response == mock_response_request
 
-    def test_listtakedowneventswithfilters_command(client, requests_mock):
+def test_listtakedowneventswithfilters_command(client, requests_mock):
         """
             When:
             Given:
             Then:
             """
-        args = {'fromDate':'2026-01-01', 'toDate':'2026-03-01'}
+        args = {'fromDate':'2026-01-01', 'toDate':'2026-03-01','page': 1, 'limit': 101}
         mock_response_request = util_load_json(
-            './test_data/outputs/listtakedowneventswithfilters_request.json')
+            './test_data/listtakedowneventswithfilters_request.json')
         mock_results = util_load_json(
-            './test_data/outputs/listtakedowneventswithfilters_command.json')
-        requests_mock.post(SERVER_URL, json=mock_response_request)
-        results = listtakedowneventswithfilters_command(client=client, args=args
-                                                           )
-        assert results.outputs_prefix == 'CSCFraudProtection'
-        assert results.outputs_key_field == ''
-        assert results.outputs == mock_results.get('outputs')
+            './test_data/listtakedowneventswithfilters_command.json')
+        requests_mock.get(f"{SERVER_URL}/takedowns/filtered-list", json=mock_response_request)
+        results = listtakedowneventswithfilters_command(client=client, args=args)
+        assert results.outputs_prefix == 'CSCTakedowns'
         assert results.raw_response == mock_response_request
 
-    def test_updatetheactionwithticketid_command(client, requests_mock):
+def test_listtakedownevents_command(client, requests_mock):
+    """
+        When:
+        Given:
+        Then:
+        """
+    args = {'fromDate':'2026-01-01', 'toDate':'2026-03-01','page': 1, 'limit': 101}
+    mock_response_request = util_load_json(
+        './test_data/listtakedownevents_request.json')
+    mock_results = util_load_json(
+        './test_data/listtakedownevents_command.json')
+    requests_mock.get(f"{SERVER_URL}/takedowns/list", json=mock_response_request)
+    results = listtakedownevents_command(client=client, args=args)
+    assert results.outputs_prefix == 'CSCTakedowns'
+    assert results.raw_response == mock_response_request
+
+def test_updatetheactionwithticketid_command(client, requests_mock):
         """
             When:
             Given:
@@ -136,14 +139,12 @@ def test_listofworklogsforticketid_command(client, requests_mock):
             """
         args = {'action':'OPEN'}
         mock_response_request = util_load_json(
-            './test_data/outputs/updatetheactionwithticketid_request.json')
+            './test_data/updatetheactionwithticketid_request.json')
         mock_results = util_load_json(
-            './test_data/outputs/updatetheactionwithticketid_command.json')
-        requests_mock.post(SERVER_URL, json=mock_response_request)
+            './test_data/updatetheactionwithticketid_command.json')
+        requests_mock.put(f"{SERVER_URL}/takedowns/control", json=mock_response_request)
         results = updatetheactionwithticketid_command(client=client, args=args
                                                            )
-        assert results.outputs_prefix == 'CSCFraudProtection'
-        assert results.outputs_key_field == ''
-        assert results.outputs == mock_results.get('outputs')
+        assert results.outputs_prefix == 'CSCTakedowns'
         assert results.raw_response == mock_response_request
 
