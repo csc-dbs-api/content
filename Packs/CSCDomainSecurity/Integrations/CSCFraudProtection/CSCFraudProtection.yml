@@ -4,12 +4,6 @@ commonfields:
 name: CSCFraudProtection
 display: CSCFraudProtection
 category: IT Services
-supportlevelheader: developer
-detailed description: |
-  ### CSC Fraud Protection Support
-  For issues specific to this integration instance, please contact:
-  **Email:** [phishing-response@cscglobal.com](mailto:phishing-response@cscglobal.com)
-  **Support Portal:** [https://cscdbs.com](https://cscdbs.com)
 description: This is an anti fraud external api for organizations.
 configuration:
 - name: url
@@ -32,12 +26,6 @@ configuration:
   defaultvalue: 'false'
   type: 8
   required: false
-- name: email
-  display: Support Contact Email
-  defaultvalue: 'phishing-response@cscglobal.com'
-  type: 0
-  required: false
-  additionalinfo: "Reach out to this address for integration troubleshooting."
 script:
   script: ''
   type: python

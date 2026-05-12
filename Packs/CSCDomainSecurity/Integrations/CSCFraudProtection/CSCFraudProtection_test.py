@@ -4,12 +4,8 @@ from CommonServerPython import *
 from CSCFraudProtection import (
     Client,
     fetchthephishkitdatawithticketid_command,
-    fetchthescreenshotdatawithticketid_command,
     fetchtheticketdataandconverttopdf_command,
-    gethtmlsourcecodeforaticket_command,
-    listofworklogsforticketid_command,
     listtakedowneventswithfilters_command,
-    updatetheactionwithticketid_command,
     getlistofbrands_command,
     getlistoffraudtypes_command,
     retrievelistofdetectionswithinspecifiedtimeframe_command,

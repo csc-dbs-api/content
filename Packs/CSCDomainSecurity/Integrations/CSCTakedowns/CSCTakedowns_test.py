@@ -27,8 +27,7 @@ def test_fetchthephishkitdatawithticketid_command(client, requests_mock):
     mock_results = util_load_json(
         './test_data/outputs/fetchthephishkitdatawithticketid_command.json')
     requests_mock.post(SERVER_URL, json=mock_response_request)
-    results = fetchthephishkitdatawithticketid_command(client=client, args=args
-                                                       )
+    results = fetchthephishkitdatawithticketid_command(client=client, args=args)
     assert results.outputs_prefix == 'CSCFraudProtection'
     assert results.outputs_key_field == ''
     assert results.outputs == mock_results.get('outputs')
