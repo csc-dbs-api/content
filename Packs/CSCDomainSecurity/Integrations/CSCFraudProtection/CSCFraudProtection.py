@@ -14,10 +14,25 @@ class Client(BaseClient):
 
         return response
 
+    def performanactiononasingletarget_request(self, targetType,action,fraudType):
+        params = assign_params(targetType=targetType, action=action, fraudType=fraudType)
+        headers = self._headers
+
+        response = self._http_request('post', 'actions/addone', params=params, headers=headers)
+
+        return response
+
     def fetchthedetectiondataandconverttopdf_request(self, eventId):
         headers = self._headers
 
         response = self._http_request('get', f'detections/{eventId}/pdf', headers=headers)
+
+        return response
+
+    def retrieveeventscreenshotwitheventid_request(self, eventId):
+        headers = self._headers
+
+        response = self._http_request('get', f'detections/{eventId}/screenshot', headers=headers)
 
         return response
 

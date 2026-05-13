@@ -29,7 +29,7 @@ def test_fetchthephishkitdatawithticketid_command(client, requests_mock):
     requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/phishkit", json=mock_response_request)
     results = fetchthephishkitdatawithticketid_command(client=client, args=args)
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 
 def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
     """
@@ -46,7 +46,7 @@ def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
     results = fetchthescreenshotdatawithticketid_command(client=client, args=args
                                                        )
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 #
 def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
     """
@@ -63,7 +63,7 @@ def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
     results = fetchtheticketdataandconverttopdf_command(client=client, args=args
                                                        )
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 #
 def test_gethtmlsourcecodeforaticket_command(client, requests_mock):
     """
@@ -80,7 +80,7 @@ def test_gethtmlsourcecodeforaticket_command(client, requests_mock):
     results = gethtmlsourcecodeforaticket_command(client=client, args=args
                                                        )
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 
 def test_listofworklogsforticketid_command(client, requests_mock):
     """
@@ -97,7 +97,7 @@ def test_listofworklogsforticketid_command(client, requests_mock):
     results = listofworklogsforticketid_command(client=client, args=args
                                                        )
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 
 def test_listtakedowneventswithfilters_command(client, requests_mock):
         """
@@ -113,7 +113,7 @@ def test_listtakedowneventswithfilters_command(client, requests_mock):
         requests_mock.get(f"{SERVER_URL}/takedowns/filtered-list", json=mock_response_request)
         results = listtakedowneventswithfilters_command(client=client, args=args)
         assert results.outputs_prefix == 'CSCTakedowns'
-        assert results.raw_response == mock_response_request
+        assert results.raw_response == mock_results['CSCTakedowns']
 
 def test_listtakedownevents_command(client, requests_mock):
     """
@@ -129,7 +129,7 @@ def test_listtakedownevents_command(client, requests_mock):
     requests_mock.get(f"{SERVER_URL}/takedowns/list", json=mock_response_request)
     results = listtakedownevents_command(client=client, args=args)
     assert results.outputs_prefix == 'CSCTakedowns'
-    assert results.raw_response == mock_response_request
+    assert results.raw_response == mock_results['CSCTakedowns']
 
 def test_updatetheactionwithticketid_command(client, requests_mock):
         """
@@ -146,5 +146,5 @@ def test_updatetheactionwithticketid_command(client, requests_mock):
         results = updatetheactionwithticketid_command(client=client, args=args
                                                            )
         assert results.outputs_prefix == 'CSCTakedowns'
-        assert results.raw_response == mock_response_request
+        assert results.raw_response == mock_results['CSCTakedowns']
 
