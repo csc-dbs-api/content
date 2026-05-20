@@ -4,14 +4,14 @@ Please contact the partner directly via the support link on the right.
 
 Integrations:
 
-CSCDomainManager 
-CSCDomainManager℠ integrates domain activity data directly into your Cortex environment, providing visibility into access and changes across your CSC-managed domain portfolio. This audit trail enables security teams to detect unauthorized activity, investigate incidents, and reconstruct events during domain-based threats targeting the organization. It also establishes a foundation for digital provenance—an increasingly critical capability in the AI era.
+CSCDomainManager
+CSCDomainManager is an integration that supports querying and enriching domains across CSC-managed domain portfolios.
 
 CSCFraudProtection
-CSCFraudProtection integrates CSC’s anti-fraud monitoring and enforcement capabilities directly into your Cortex environment, enabling organizations to identify and mitigate phishing, business email compromise (BEC), malicious websites, typo-squatted domains, and broader digital fraud threats. Through machine learning-driven detection, phishing validation, and rapid enforcement workflows, security teams can accelerate response times and reduce exposure to online fraud and brand abuse.
+CSCFraudProtection is an integration that detects and remediates phishing, BEC, typo-squatting, malicious websites, and digital fraud threats through monitoring and takedown services.
 
 CSCTakedowns
-CSC delivers global managed domain takedown and brand enforcement services to combat phishing, fraud, and brand abuse. Through this Cortex integration, customers can submit takedown requests directly via API - streamlining response workflows, accelerating mitigation efforts, and reducing exposure to domain-driven cyber threats.
+CSCTakedowns is an integration that enables rapid submission, management, and remediation of takedown requests for malicious domains, phishing, vishing, smishing, fraud, and brand impersonation threats.
 
 # What does this pack do?
 
