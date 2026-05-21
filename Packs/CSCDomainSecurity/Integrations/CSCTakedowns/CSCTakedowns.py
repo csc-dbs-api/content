@@ -1,6 +1,8 @@
 import demistomock as demisto
 from CommonServerPython import *
 
+from Packs.CommunityCommonScripts.Scripts.RandomPhotoNasa.RandomPhotoNasa import json_data
+
 
 class Client(BaseClient):
     def __init__(self, server_url, verify, proxy, headers, auth):
@@ -49,10 +51,10 @@ class Client(BaseClient):
         headers = self._headers
         return self._http_request('get', 'takedowns/filtered-list', params=params, headers=headers)
 
-    def updatetheactionwithticketid_request(self, action):
+    def updatetheactionwithticketid_request(self, action,body_data):
         params = assign_params(action=action)
         headers = self._headers
-        return self._http_request('put', 'takedowns/control', params=params, headers=headers)
+        return self._http_request('put', 'takedowns/control', params=params, headers=headers, json_data=body_data)
 
 
 
@@ -108,7 +110,19 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
 
 
 def updatetheactionwithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    response = client.updatetheactionwithticketid_request(args.get('action'))
+    action = str(args.get('action', ''))
+
+    body_input =args.get('body')
+
+    # 3. Handle cases where the playbook passes the JSON as a raw string
+    if isinstance(body_input, str):
+       try:
+           body_data = json.loads(body_input)
+       except json.JSONDecodeError:
+           return_error(f"Provided 'body' input is not valid JSON format: {body_input}")
+    else:
+        body_data = body_input
+    response = client.updatetheactionwithticketid_request(action, body_data)
     return CommandResults(outputs_prefix='CSCTakedowns', outputs=response, raw_response=response)
 
 

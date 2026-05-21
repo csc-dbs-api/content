@@ -172,3 +172,6 @@ script:
       description: Ticket action
       required: true
       isArray: false
+    - name: body
+      description: The raw JSON request body payload
+      required: true

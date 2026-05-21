@@ -40,6 +40,9 @@ script:
       description: Update the action with eventID
       required: true
       isArray: false
+    - name: body
+      description: The raw JSON request body payload
+      required: true
     outputs:
     - type: String
       contextPath: CSCFraudProtection.message
@@ -229,6 +232,9 @@ script:
       description: Type of the Fraud
       required: false
       isArray: false
+    - name: body
+      description: The raw JSON request body payload
+      required: true
     outputs:
     - type: String
       contextPath: CSCFraudProtection.message
@@ -346,6 +352,9 @@ script:
       description: Monitoring action to perform
       required: true
       isArray: false
+    - name: body
+      description: The raw JSON request body payload
+      required: true
     outputs:
     - type: String
       contextPath: CSCFraudProtection.message
@@ -360,3 +369,6 @@ script:
       description: Ticket action
       required: true
       isArray: false
+    - name: body
+      description: The raw JSON request body payload
+      required: true

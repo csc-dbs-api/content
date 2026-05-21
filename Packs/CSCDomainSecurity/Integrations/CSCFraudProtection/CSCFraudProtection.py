@@ -1,24 +1,25 @@
 import demistomock as demisto
 from CommonServerPython import *
 
+from Packs.CommunityCommonScripts.Scripts.RandomPhotoNasa.RandomPhotoNasa import json_data
+
 
 class Client(BaseClient):
     def __init__(self, server_url, verify, proxy, headers, auth):
         super().__init__(base_url=server_url, verify=verify, proxy=proxy, headers=headers, auth=auth)
 
-    def controldetectionflowbyeventidandaction_request(self, action):
+    def controldetectionflowbyeventidandaction_request(self, action,body_data):
         params = assign_params(action=action)
         headers = self._headers
 
-        response = self._http_request('put', 'detections/control', params=params, headers=headers)
+        response = self._http_request('put', 'detections/control', params=params, headers=headers, json_data=body_data)
 
         return response
 
-    def performanactiononasingletarget_request(self, targetType,action,fraudType):
+    def performanactiononasingletarget_request(self, targetType,action,fraudType,body_data):
         params = assign_params(targetType=targetType, action=action, fraudType=fraudType)
         headers = self._headers
-
-        response = self._http_request('post', 'actions/addone', params=params, headers=headers)
+        response = self._http_request('post', 'actions/addone', params=params, headers=headers,json_data=body_data)
 
         return response
 
@@ -147,19 +148,19 @@ class Client(BaseClient):
 
         return response
 
-    def startorstopmonitoringforaspecificevent_request(self, action):
+    def startorstopmonitoringforaspecificevent_request(self, action,body_data):
         params = assign_params(action=action)
         headers = self._headers
 
-        response = self._http_request('put', 'monitoring/control', params=params, headers=headers)
+        response = self._http_request('put', 'monitoring/control', params=params, headers=headers, json_data=body_data)
 
         return response
 
-    def updatetheactionwithticketid_request(self, action):
+    def updatetheactionwithticketid_request(self, action,body_data):
         params = assign_params(action=action)
         headers = self._headers
 
-        response = self._http_request('put', 'takedowns/control', params=params, headers=headers)
+        response = self._http_request('put', 'takedowns/control', params=params, headers=headers, json_data=body_data)
 
         return response
 
@@ -167,7 +168,6 @@ class Client(BaseClient):
 def controldetectionflowbyeventidandaction_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     action = str(args.get('action', ''))
 
-    response = client.controldetectionflowbyeventidandaction_request(action)
     command_results = CommandResults(
         outputs_prefix='CSCFraudProtection',
         outputs_key_field='',
@@ -333,7 +333,25 @@ def performanactiononasingletarget_command(client: Client, args: Dict[str, Any])
     action = str(args.get('action', ''))
     fraudType = str(args.get('fraudType', ''))
 
-    response = client.performanactiononasingletarget_request(targetType, action, fraudType)
+    body_input =args.get('body')
+
+    # 3. Handle cases where the playbook passes the JSON as a raw string
+    if isinstance(body_input, str):
+        try:
+            body_data = json.loads(body_input)
+        except json.JSONDecodeError:
+            return_error(f"Provided 'body' input is not valid JSON format: {body_input}")
+    else:
+        body_data = body_input
+
+    # 4. Pass the body_data into your client request function
+    response = client.performanactiononasingletarget_request(
+        targetType=targetType,
+        action=action,
+        fraudType=fraudType,
+        body_data=body_data
+    )
+
     command_results = CommandResults(
         outputs_prefix='CSCFraudProtection',
         outputs_key_field='',
@@ -433,8 +451,18 @@ def retrievephishkitwitheventid_command(client: Client, args: Dict[str, Any]) ->
 
 def startorstopmonitoringforaspecificevent_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     action = str(args.get('action', ''))
+    body_input =args.get('body')
 
-    response = client.startorstopmonitoringforaspecificevent_request(action)
+# 3. Handle cases where the playbook passes the JSON as a raw string
+    if isinstance(body_input, str):
+        try:
+           body_data = json.loads(body_input)
+        except json.JSONDecodeError:
+            return_error(f"Provided 'body' input is not valid JSON format: {body_input}")
+    else:
+        body_data = body_input
+
+    response = client.startorstopmonitoringforaspecificevent_request(action,body_data)
     command_results = CommandResults(
         outputs_prefix='CSCFraudProtection',
         outputs_key_field='',
@@ -447,8 +475,18 @@ def startorstopmonitoringforaspecificevent_command(client: Client, args: Dict[st
 
 def updatetheactionwithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     action = str(args.get('action', ''))
+    body_input =args.get('body')
 
-    response = client.updatetheactionwithticketid_request(action)
+# 3. Handle cases where the playbook passes the JSON as a raw string
+    if isinstance(body_input, str):
+      try:
+         body_data = json.loads(body_input)
+      except json.JSONDecodeError:
+         return_error(f"Provided 'body' input is not valid JSON format: {body_input}")
+    else:
+        body_data = body_input
+
+    response = client.updatetheactionwithticketid_request(action,body_data)
     command_results = CommandResults(
         outputs_prefix='CSCFraudProtection',
         outputs_key_field='',
