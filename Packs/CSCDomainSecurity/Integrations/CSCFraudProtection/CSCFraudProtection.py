@@ -17,7 +17,7 @@ class Client(BaseClient):
     def performanactiononasingletarget_request(self, targetType,action,fraudType, body_data):
         params = assign_params(targetType=targetType, action=action, fraudType=fraudType)
         headers = self._headers
-        response = self._http_request('post', 'actions/addone', params=params, headers=headers,json_data=body_data)
+        response = self._http_request('post', 'actions/addone', params=params, headers=headers, json_data=body_data)
 
         return response
 
@@ -100,13 +100,6 @@ class Client(BaseClient):
 
         return response
 
-    def performanactiononasingletarget_request(self, targetType, action, fraudType):
-        params = assign_params(targetType=targetType, action=action, fraudType=fraudType)
-        headers = self._headers
-
-        response = self._http_request('post', 'actions/addone', params=params, headers=headers)
-
-        return response
 
     def retrieveeventscreenshotwitheventid_request(self, eventId):
         headers = self._headers
