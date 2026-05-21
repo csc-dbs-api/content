@@ -1,8 +1,6 @@
 import demistomock as demisto
 from CommonServerPython import *
 
-from Packs.CommunityCommonScripts.Scripts.RandomPhotoNasa.RandomPhotoNasa import json_data
-
 
 class Client(BaseClient):
     def __init__(self, server_url, verify, proxy, headers, auth):
