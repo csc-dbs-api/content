@@ -55,9 +55,9 @@ tasks:
     task:
       id: '2'
       version: -1
-      name: cscantifraud-controldetectionflowbyeventidandaction
+      name: csc-controldetectionflowbyeventidandaction
       description: ''
-      script: Anti Fraud API|||cscantifraud-controldetectionflowbyeventidandaction
+      script: Anti Fraud API|||csc-controldetectionflowbyeventidandaction
       type: regular
       iscommand: true
       brand: ''
@@ -112,9 +112,9 @@ tasks:
     task:
       id: '4'
       version: -1
-      name: cscantifraud-fetchthedetectiondataandconverttopdf
+      name: csc-fetchthedetectiondataandconverttopdf
       description: ''
-      script: Anti Fraud API|||cscantifraud-fetchthedetectiondataandconverttopdf
+      script: Anti Fraud API|||csc-fetchthedetectiondataandconverttopdf
       type: regular
       iscommand: true
       brand: ''
@@ -169,9 +169,9 @@ tasks:
     task:
       id: '6'
       version: -1
-      name: cscantifraud-fetchthephishkitdatawithticketid
+      name: csc-fetchthephishkitdatawithticketid
       description: ''
-      script: Anti Fraud API|||cscantifraud-fetchthephishkitdatawithticketid
+      script: Anti Fraud API|||csc-fetchthephishkitdatawithticketid
       type: regular
       iscommand: true
       brand: ''
@@ -192,9 +192,9 @@ tasks:
     task:
       id: '7'
       version: -1
-      name: cscantifraud-fetchthescreenshotdatawithticketid
+      name: csc-fetchthescreenshotdatawithticketid
       description: ''
-      script: Anti Fraud API|||cscantifraud-fetchthescreenshotdatawithticketid
+      script: Anti Fraud API|||csc-fetchthescreenshotdatawithticketid
       type: regular
       iscommand: true
       brand: ''
@@ -215,9 +215,9 @@ tasks:
     task:
       id: '8'
       version: -1
-      name: cscantifraud-fetchtheticketdataandconverttopdf
+      name: csc-fetchtheticketdataandconverttopdf
       description: ''
-      script: Anti Fraud API|||cscantifraud-fetchtheticketdataandconverttopdf
+      script: Anti Fraud API|||csc-fetchtheticketdataandconverttopdf
       type: regular
       iscommand: true
       brand: ''
@@ -272,9 +272,9 @@ tasks:
     task:
       id: '10'
       version: -1
-      name: cscantifraud-gethtmlsourcecodeforaticket
+      name: csc-gethtmlsourcecodeforaticket
       description: ''
-      script: Anti Fraud API|||cscantifraud-gethtmlsourcecodeforaticket
+      script: Anti Fraud API|||csc-gethtmlsourcecodeforaticket
       type: regular
       iscommand: true
       brand: ''
@@ -329,9 +329,9 @@ tasks:
     task:
       id: '12'
       version: -1
-      name: cscantifraud-getlistofbrands
+      name: csc-getlistofbrands
       description: ''
-      script: Anti Fraud API|||cscantifraud-getlistofbrands
+      script: Anti Fraud API|||csc-getlistofbrands
       type: regular
       iscommand: true
       brand: ''
@@ -391,9 +391,9 @@ tasks:
     task:
       id: '14'
       version: -1
-      name: cscantifraud-getlistoffraudtypes
+      name: csc-getlistoffraudtypes
       description: ''
-      script: Anti Fraud API|||cscantifraud-getlistoffraudtypes
+      script: Anti Fraud API|||csc-getlistoffraudtypes
       type: regular
       iscommand: true
       brand: ''
@@ -448,9 +448,9 @@ tasks:
     task:
       id: '16'
       version: -1
-      name: cscantifraud-listofworklogsforticketid
+      name: csc-listofworklogsforticketid
       description: ''
-      script: Anti Fraud API|||cscantifraud-listofworklogsforticketid
+      script: Anti Fraud API|||csc-listofworklogsforticketid
       type: regular
       iscommand: true
       brand: ''
@@ -505,9 +505,9 @@ tasks:
     task:
       id: '18'
       version: -1
-      name: cscantifraud-listtakedownevents
+      name: csc-listtakedownevents
       description: ''
-      script: Anti Fraud API|||cscantifraud-listtakedownevents
+      script: Anti Fraud API|||csc-listtakedownevents
       type: regular
       iscommand: true
       brand: ''
@@ -562,9 +562,9 @@ tasks:
     task:
       id: '20'
       version: -1
-      name: cscantifraud-listtakedowneventswithfilters
+      name: csc-listtakedowneventswithfilters
       description: ''
-      script: Anti Fraud API|||cscantifraud-listtakedowneventswithfilters
+      script: Anti Fraud API|||csc-listtakedowneventswithfilters
       type: regular
       iscommand: true
       brand: ''
@@ -619,9 +619,9 @@ tasks:
     task:
       id: '22'
       version: -1
-      name: cscantifraud-performanactiononasingletarget
+      name: csc-performanactiononasingletarget
       description: ''
-      script: Anti Fraud API|||cscantifraud-performanactiononasingletarget
+      script: Anti Fraud API|||csc-performanactiononasingletarget
       type: regular
       iscommand: true
       brand: ''
@@ -676,9 +676,9 @@ tasks:
     task:
       id: '24'
       version: -1
-      name: cscantifraud-retrieveeventscreenshotwitheventid
+      name: csc-retrieveeventscreenshotwitheventid
       description: ''
-      script: Anti Fraud API|||cscantifraud-retrieveeventscreenshotwitheventid
+      script: Anti Fraud API|||csc-retrieveeventscreenshotwitheventid
       type: regular
       iscommand: true
       brand: ''
@@ -699,9 +699,9 @@ tasks:
     task:
       id: '25'
       version: -1
-      name: cscantifraud-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+      name: csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
       description: ''
-      script: Anti Fraud API|||cscantifraud-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+      script: Anti Fraud API|||csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
       type: regular
       iscommand: true
       brand: ''
@@ -722,9 +722,9 @@ tasks:
     task:
       id: '26'
       version: -1
-      name: cscantifraud-retrievelistofdetectionswithinspecifiedtimeframe
+      name: csc-retrievelistofdetectionswithinspecifiedtimeframe
       description: ''
-      script: Anti Fraud API|||cscantifraud-retrievelistofdetectionswithinspecifiedtimeframe
+      script: Anti Fraud API|||csc-retrievelistofdetectionswithinspecifiedtimeframe
       type: regular
       iscommand: true
       brand: ''
@@ -745,9 +745,9 @@ tasks:
     task:
       id: '27'
       version: -1
-      name: cscantifraud-retrievelistofmonitoringresultswithinspecifiedtimeframe
+      name: csc-retrievelistofmonitoringresultswithinspecifiedtimeframe
       description: ''
-      script: Anti Fraud API|||cscantifraud-retrievelistofmonitoringresultswithinspecifiedtimeframe
+      script: Anti Fraud API|||csc-retrievelistofmonitoringresultswithinspecifiedtimeframe
       type: regular
       iscommand: true
       brand: ''
@@ -768,9 +768,9 @@ tasks:
     task:
       id: '28'
       version: -1
-      name: cscantifraud-retrievephishkitwitheventid
+      name: csc-retrievephishkitwitheventid
       description: ''
-      script: Anti Fraud API|||cscantifraud-retrievephishkitwitheventid
+      script: Anti Fraud API|||csc-retrievephishkitwitheventid
       type: regular
       iscommand: true
       brand: ''
@@ -791,9 +791,9 @@ tasks:
     task:
       id: '29'
       version: -1
-      name: cscantifraud-startorstopmonitoringforaspecificevent
+      name: csc-startorstopmonitoringforaspecificevent
       description: ''
-      script: Anti Fraud API|||cscantifraud-startorstopmonitoringforaspecificevent
+      script: Anti Fraud API|||csc-startorstopmonitoringforaspecificevent
       type: regular
       iscommand: true
       brand: ''
@@ -848,9 +848,9 @@ tasks:
     task:
       id: '31'
       version: -1
-      name: cscantifraud-updatetheactionwithticketid
+      name: csc-updatetheactionwithticketid
       description: ''
-      script: Anti Fraud API|||cscantifraud-updatetheactionwithticketid
+      script: Anti Fraud API|||csc-updatetheactionwithticketid
       type: regular
       iscommand: true
       brand: ''

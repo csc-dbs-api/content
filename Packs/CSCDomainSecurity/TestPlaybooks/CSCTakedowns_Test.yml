@@ -1,5 +1,5 @@
-id: CSCTakedowns
-name: CSCTakedowns
+id: CSCTakedowns_Test
+name: CSCTakedowns_Test
 version: -1
 fromversion: 4.5.0
 starttaskid: '0'
