@@ -343,7 +343,7 @@ def performanactiononasingletarget_command(client: Client, args: Dict[str, Any])
         try:
             body_data = json.loads(body_input)
         except json.JSONDecodeError:
-            return_error(f"Provided 'body' input is not valid JSON fo1rmat: {body_input}")
+            return_error(f"Provided 'body' input is not valid JSON format: {body_input}")
     else:
         body_data = body_input
 
