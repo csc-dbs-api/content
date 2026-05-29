@@ -1,5 +1,4 @@
 import pytest
-from CommonServerPython import *
 from CSCFraudProtection import (
     Client,
     fetchthephishkitdatawithticketid_command,
@@ -15,10 +14,12 @@ from CSCFraudProtection import (
     gethtmlsourcecodeforaticket_command,
     listofworklogsforticketid_command,
     updatetheactionwithticketid_command,
+    retrievephishkitwitheventid_command,
     startorstopmonitoringforaspecificevent_command,
     listtakedownevents_command,
     retrieveeventscreenshotwitheventid_command,
     performanactiononasingletarget_command,
+    controldetectionflowbyeventidandaction_command
 )
 
 SERVER_URL = "https://test_url.com"
@@ -118,6 +119,18 @@ def test_updatetheactionwithticketid_command(client, requests_mock):
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
 
+def test_retrievephishkitwitheventid_command(client, requests_mock):
+    args = {"eventId": "123"}
+    mock_response = util_load_json("test_data/retrievephishkitwitheventid_request.json")
+    mock_results = util_load_json("test_data/retrievephishkitwitheventid_command.json")
+
+    requests_mock.put(f"{SERVER_URL}/{args['eventId']}/phishkit", json=mock_response)
+    results = retrievephishkitwitheventid_command(client, args)
+
+    assert results.outputs_prefix == "CSCFraudProtection"
+    assert results.raw_response == mock_results["CSCFraudProtection"]
+
+
 def test_getlistofbrands_command(client, requests_mock):
     mock_response = util_load_json("./test_data/getlistofbrands_request.json")
     mock_results = util_load_json("./test_data/getlistofbrands_command.json")
@@ -152,10 +165,10 @@ def test_retrievelistofdetectionswithinspecifiedtimeframe_command(client, reques
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
 
-def test_retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_command(client, requests_mock):
+def test_getfilteredlistofmonitoringresultsspecifiedtime_command(client, requests_mock):
     args = {"fromDate": "2026-01-01", "toDate": "2026-03-01", "brand": "BrandA", "fraudType": "FraudTypeA"}
-    mock_response = util_load_json("./test_data/retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request.json")
-    mock_results = util_load_json("./test_data/retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_command.json")
+    mock_response = util_load_json("./test_data/getfilteredlistofmonitoringresultsspecifiedtim_request.json")
+    mock_results = util_load_json("test_data/getfilteredlistofmonitoringresultsspecifiedtime_command.json")
 
     requests_mock.get(f"{SERVER_URL}/monitoring/filtered-list", json=mock_response)
     results = getfilteredlistofmonitoringresultsspecifiedtime_command(client, args)
@@ -164,10 +177,10 @@ def test_retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_command
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
 
-def test_retrievelistofmonitoringresultswithinspecifiedtimeframe_command(client, requests_mock):
+def test_getlistofmonitoringresultsspecifiedtime_command(client, requests_mock):
     args = {"fromDate": "2026-01-01", "toDate": "2026-03-01"}
-    mock_response = util_load_json("./test_data/retrievelistofmonitoringresultswithinspecifiedtimeframe_request.json")
-    mock_results = util_load_json("./test_data/retrievelistofmonitoringresultswithinspecifiedtimeframe_command.json")
+    mock_response = util_load_json("./test_data/getlistofmonitoringresultsspecifiedtime_request.json")
+    mock_results = util_load_json("./test_data/getlistofmonitoringresultsspecifiedtime_command.json")
 
     requests_mock.get(f"{SERVER_URL}/monitoring/list", json=mock_response)
     results = getlistofmonitoringresultsspecifiedtime_command(client, args)
@@ -187,11 +200,21 @@ def test_fetchthedetectiondataandconverttopdf_command(client, requests_mock):
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
+def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
+    args = {"action": "OPEN"}
+    mock_response = util_load_json("./test_data/controldetectionflowbyeventidandaction_request.json")
+    mock_results = util_load_json("./test_data/controldetectionflowbyeventidandaction_command.json")
 
-def test_fetchthescreenshotdataforaeventid_command(client, requests_mock):
+    requests_mock.get(f"{SERVER_URL}/detections/control", json=mock_response)
+    results = controldetectionflowbyeventidandaction_command(client, args)
+
+    assert results.outputs_prefix == "CSCFraudProtection"
+    assert results.raw_response == mock_results["CSCFraudProtection"]
+
+def test_retrieveeventscreenshotwitheventid_command(client, requests_mock):
     args = {"eventId": "123"}
-    mock_response = util_load_json("./test_data/fetchthescreenshotdataforadetectionid_request.json")
-    mock_results = util_load_json("./test_data/fetchthescreenshotdataforadetectionid_command.json")
+    mock_response = util_load_json("./test_data/retrieveeventscreenshotwitheventid_request.json")
+    mock_results = util_load_json("./test_data/retrieveeventscreenshotwitheventid_command.json")
 
     requests_mock.get(f"{SERVER_URL}/detections/{args['eventId']}/screenshot", json=mock_response)
     results = retrieveeventscreenshotwitheventid_command(client, args)
