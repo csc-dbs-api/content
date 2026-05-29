@@ -4,7 +4,7 @@ Please contact the partner directly via the support link on the right.
 
 Integrations:
 
-CSCDomainManager 
+CSCDomainManager
 CSCDomainManager℠ integrates domain activity data directly into your Cortex environment, providing visibility into access and changes across your CSC-managed domain portfolio. This audit trail enables security teams to detect unauthorized activity, investigate incidents, and reconstruct events during domain-based threats targeting the organization. It also establishes a foundation for digital provenance—an increasingly critical capability in the AI era.
 
 CSCFraudProtection
