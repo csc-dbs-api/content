@@ -1,5 +1,6 @@
+import json
 import pytest
-from CommonServerPython import *
+
 from CSCTakedowns import (
     Client,
     fetchthephishkitdatawithticketid_command,

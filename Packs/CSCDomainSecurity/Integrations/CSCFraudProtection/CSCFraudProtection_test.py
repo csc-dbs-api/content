@@ -1,4 +1,5 @@
 import pytest
+import json
 from CSCFraudProtection import (
     Client,
     fetchthephishkitdatawithticketid_command,
@@ -19,7 +20,7 @@ from CSCFraudProtection import (
     listtakedownevents_command,
     retrieveeventscreenshotwitheventid_command,
     performanactiononasingletarget_command,
-    controldetectionflowbyeventidandaction_command
+    controldetectionflowbyeventidandaction_command,
 )
 
 SERVER_URL = "https://test_url.com"
@@ -200,6 +201,7 @@ def test_fetchthedetectiondataandconverttopdf_command(client, requests_mock):
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
+
 def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
     args = {"action": "OPEN"}
     mock_response = util_load_json("./test_data/controldetectionflowbyeventidandaction_request.json")
@@ -210,6 +212,7 @@ def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
 
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
+
 
 def test_retrieveeventscreenshotwitheventid_command(client, requests_mock):
     args = {"eventId": "123"}

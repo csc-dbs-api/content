@@ -699,7 +699,7 @@ tasks:
     task:
       id: '25'
       version: -1
-      name: csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
+      name: csc-getfilteredlistofmonitoringresultsspecifiedtime
       description: ''
       script: Anti Fraud API|||csc-retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe
       type: regular
@@ -745,7 +745,7 @@ tasks:
     task:
       id: '27'
       version: -1
-      name: csc-retrievelistofmonitoringresultswithinspecifiedtimeframe
+      name: csc-getlistofmonitoringresultsspecifiedtime
       description: ''
       script: Anti Fraud API|||csc-retrievelistofmonitoringresultswithinspecifiedtimeframe
       type: regular
