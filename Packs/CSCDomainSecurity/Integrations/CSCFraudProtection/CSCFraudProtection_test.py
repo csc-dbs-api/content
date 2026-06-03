@@ -168,8 +168,8 @@ def test_retrievelistofdetectionswithinspecifiedtimeframe_command(client, reques
 
 def test_getfilteredlistofmonitoringresultsspecifiedtime_command(client, requests_mock):
     args = {"fromDate": "2026-01-01", "toDate": "2026-03-01", "brand": "BrandA", "fraudType": "FraudTypeA"}
-    mock_response = util_load_json("./test_data/getfilteredlistofmonitoringresultsspecifiedtim_request.json")
-    mock_results = util_load_json("test_data/getfilteredlistofmonitoringresultsspecifiedtime_command.json")
+    mock_response = util_load_json("./test_data/getfilteredlistofmonitoringresultsspecifiedtime_request.json")
+    mock_results = util_load_json("./test_data/getfilteredlistofmonitoringresultsspecifiedtime_command.json")
 
     requests_mock.get(f"{SERVER_URL}/monitoring/filtered-list", json=mock_response)
     results = getfilteredlistofmonitoringresultsspecifiedtime_command(client, args)
@@ -207,7 +207,7 @@ def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
     mock_response = util_load_json("./test_data/controldetectionflowbyeventidandaction_request.json")
     mock_results = util_load_json("./test_data/controldetectionflowbyeventidandaction_command.json")
 
-    requests_mock.get(f"{SERVER_URL}/detections/control", json=mock_response)
+    requests_mock.put(f"{SERVER_URL}/detections/control", json=mock_response)
     results = controldetectionflowbyeventidandaction_command(client, args)
 
     assert results.outputs_prefix == "CSCFraudProtection"
