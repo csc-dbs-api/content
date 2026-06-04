@@ -125,7 +125,7 @@ def test_retrievephishkitwitheventid_command(client, requests_mock):
     mock_response = util_load_json("test_data/retrievephishkitwitheventid_request.json")
     mock_results = util_load_json("test_data/retrievephishkitwitheventid_command.json")
 
-    requests_mock.put(f"{SERVER_URL}/{args['eventId']}/phishkit", json=mock_response)
+    requests_mock.get(f"{SERVER_URL}/{args['eventId']}/phishkit", json=mock_response)
     results = retrievephishkitwitheventid_command(client, args)
 
     assert results.outputs_prefix == "CSCFraudProtection"
