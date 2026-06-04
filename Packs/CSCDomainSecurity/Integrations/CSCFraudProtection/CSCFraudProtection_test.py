@@ -23,7 +23,7 @@ from CSCFraudProtection import (
     controldetectionflowbyeventidandaction_command,
 )
 
-SERVER_URL = "https://test_url.com" # pragma: allowlist secret
+SERVER_URL = "https://test_url.com"  # pragma: allowlist secret
 
 
 def util_load_json(path):
