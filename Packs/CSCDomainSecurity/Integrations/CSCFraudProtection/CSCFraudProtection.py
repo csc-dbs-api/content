@@ -93,12 +93,12 @@ class Client(BaseClient):
         return response
 
     def listtakedowneventswithfilters_request(
-        self, fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        self, fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     ):
         params = assign_params(
             fromDate=fromDate,
             toDate=toDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             ticketStatus=ticketStatus,
             DetectionDate=DetectionDate,
@@ -114,12 +114,12 @@ class Client(BaseClient):
         return response
 
     def retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request(
-        self, startDate, endDate, _andId, fraudType, monitoringStatus, page, limit
+        self, startDate, endDate, brandId, fraudType, monitoringStatus, page, limit
     ):
         params = assign_params(
             startDate=startDate,
             endDate=endDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             monitoringStatus=monitoringStatus,
             page=page,
@@ -306,7 +306,7 @@ def listtakedownevents_command(client: Client, args: Dict[str, Any]) -> CommandR
 def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     fromDate = str(args.get("fromDate", ""))
     toDate = str(args.get("toDate", ""))
-    _andId = args.get("_andId", None)
+    brandId = args.get("brandId", None)
     fraudType = str(args.get("fraudType", ""))
     ticketStatus = str(args.get("ticketStatus", ""))
     DetectionDate = argToBoolean(args.get("DetectionDate", False))
@@ -316,7 +316,7 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
     limit = args.get("limit", None)
 
     response = client.listtakedowneventswithfilters_request(
-        fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     )
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
@@ -367,14 +367,14 @@ def retrieveeventscreenshotwitheventid_command(client: Client, args: Dict[str, A
 def getfilteredlistofmonitoringresultsspecifiedtime_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     startDate = str(args.get("startDate", ""))
     endDate = str(args.get("endDate", ""))
-    _andId = args.get("_andId", None)
+    brandId = args.get("brandId", None)
     fraudType = str(args.get("fraudType", ""))
     monitoringStatus = str(args.get("monitoringStatus", ""))
     page = args.get("page", None)
     limit = args.get("limit", None)
 
     response = client.retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request(
-        startDate, endDate, _andId, fraudType, monitoringStatus, page, limit
+        startDate, endDate, brandId, fraudType, monitoringStatus, page, limit
     )
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response

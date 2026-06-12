@@ -32,12 +32,12 @@ class Client(BaseClient):
         return self._http_request("get", "takedowns/list", params=params, headers=headers)
 
     def listtakedowneventswithfilters_request(
-        self, fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        self, fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     ):
         params = assign_params(
             fromDate=fromDate,
             toDate=toDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             ticketStatus=ticketStatus,
             DetectionDate=DetectionDate,
@@ -89,7 +89,7 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
     response = client.listtakedowneventswithfilters_request(
         args.get("fromDate"),
         args.get("toDate"),
-        args.get("_andId"),
+        args.get("brandId"),
         args.get("fraudType"),
         args.get("ticketStatus"),
         argToBoolean(args.get("DetectionDate", False)),
