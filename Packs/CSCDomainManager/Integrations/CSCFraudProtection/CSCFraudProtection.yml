@@ -372,3 +372,4 @@ script:
     - name: body
       description: The raw JSON request body payload
       required: true
+fromversion: 5.0.0
