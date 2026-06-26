@@ -178,7 +178,7 @@ script:
       description: End date in YYYY--MM--DD format
       required: true
       isArray: false
-    - name: _andId
+    - name: brandId
       description: Filter by Brand Id
       required: false
       isArray: false
@@ -260,7 +260,7 @@ script:
       description: 'Filter by end date. Expected format: YYYY-MM-DD'
       required: true
       isArray: false
-    - name: _andId
+    - name: brandId
       description: Filter by Brand Id
       required: false
       isArray: false
