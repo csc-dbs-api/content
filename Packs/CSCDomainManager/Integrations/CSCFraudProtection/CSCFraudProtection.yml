@@ -50,20 +50,6 @@ script:
     - type: String
       contextPath: CSCFraudProtection.status
       description: ''
-  - name: csc-fetchthedetectiondataandconverttopdf
-    description: Fetch the detection data and convert to pdf
-    arguments:
-    - name: eventId
-      description: Event Id to download takedown report
-      required: true
-      isArray: false
-    outputs:
-    - type: String
-      contextPath: CSCFraudProtection.message
-      description: ''
-    - type: String
-      contextPath: CSCFraudProtection.status
-      description: ''
   - name: csc-fetchthephishkitdatawithticketid
     description: Fetch the phishkit data with ticketId
     arguments:
@@ -78,20 +64,6 @@ script:
       description: Ticket Id to fetch screenshot
       required: true
       isArray: false
-  - name: csc-fetchtheticketdataandconverttopdf
-    description: Fetch the ticket data and convert to pdf
-    arguments:
-    - name: ticketId
-      description: Ticket Id to fetch supporting documents for takedown
-      required: true
-      isArray: false
-    outputs:
-    - type: String
-      contextPath: CSCFraudProtection.message
-      description: ''
-    - type: String
-      contextPath: CSCFraudProtection.status
-      description: ''
   - name: csc-gethtmlsourcecodeforaticket
     description: Get HTML Source Code for a Ticket
     arguments:

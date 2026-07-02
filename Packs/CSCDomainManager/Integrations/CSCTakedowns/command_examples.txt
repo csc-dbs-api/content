@@ -1,6 +1,5 @@
 !fetchthephishkitdatawithticketid ticketId=123
 !fetchthescreenshotdatawithticketid ticketId=123
-!fetchtheticketdataandconverttopdf ticketId=123
 !gethtmlsourcecodeforaticket ticketId=123
 !listofworklogsforticketid ticketId=123
 !listtakedowneventswithfilters fromDate="2026-01-01" toDate="2026-03-01"

@@ -47,20 +47,6 @@ script:
       description: Ticket Id to fetch screenshot
       required: true
       isArray: false
-  - name: csctakedowns-fetchtheticketdataandconverttopdf
-    description: Fetch the ticket data and convert to pdf
-    arguments:
-    - name: ticketId
-      description: Ticket Id to fetch supporting documents for takedown
-      required: true
-      isArray: false
-    outputs:
-    - type: String
-      contextPath: CSCTakedowns.message
-      description: ''
-    - type: String
-      contextPath: CSCTakedowns.status
-      description: ''
   - name: csctakedowns-gethtmlsourcecodeforaticket
     description: Get HTML Source Code for a Ticket
     arguments:

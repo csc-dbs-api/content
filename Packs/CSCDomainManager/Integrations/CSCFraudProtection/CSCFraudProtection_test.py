@@ -3,14 +3,12 @@ import json
 from CSCFraudProtection import (
     Client,
     fetchthephishkitdatawithticketid_command,
-    fetchtheticketdataandconverttopdf_command,
     listtakedowneventswithfilters_command,
     getlistofbrands_command,
     getlistoffraudtypes_command,
     retrievelistofdetectionswithinspecifiedtimeframe_command,
     getfilteredlistofmonitoringresultsspecifiedtime_command,
     getlistofmonitoringresultsspecifiedtime_command,
-    fetchthedetectiondataandconverttopdf_command,
     fetchthescreenshotdatawithticketid_command,
     gethtmlsourcecodeforaticket_command,
     listofworklogsforticketid_command,
@@ -55,18 +53,6 @@ def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
 
     requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/screenshot", json=mock_response)
     results = fetchthescreenshotdatawithticketid_command(client, args)
-
-    assert results.outputs_prefix == "CSCFraudProtection"
-    assert results.raw_response == mock_results["CSCFraudProtection"]
-
-
-def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
-    args = {"ticketId": "123"}
-    mock_response = util_load_json("./test_data/fetchtheticketdataandconverttopdf_request.json")
-    mock_results = util_load_json("./test_data/fetchtheticketdataandconverttopdf_command.json")
-
-    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/pdf", json=mock_response)
-    results = fetchtheticketdataandconverttopdf_command(client, args)
 
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
@@ -188,19 +174,6 @@ def test_getlistofmonitoringresultsspecifiedtime_command(client, requests_mock):
 
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
-
-
-def test_fetchthedetectiondataandconverttopdf_command(client, requests_mock):
-    args = {"eventId": "123"}
-    mock_response = util_load_json("./test_data/fetchthedetectiondataandconverttopdf_request.json")
-    mock_results = util_load_json("./test_data/fetchthedetectiondataandconverttopdf_command.json")
-
-    requests_mock.get(f"{SERVER_URL}/detections/{args['eventId']}/pdf", json=mock_response)
-    results = fetchthedetectiondataandconverttopdf_command(client, args)
-
-    assert results.outputs_prefix == "CSCFraudProtection"
-    assert results.raw_response == mock_results["CSCFraudProtection"]
-
 
 def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
     args = {"action": "OPEN"}

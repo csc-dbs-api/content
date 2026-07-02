@@ -21,12 +21,6 @@ class Client(BaseClient):
 
         return response
 
-    def fetchthedetectiondataandconverttopdf_request(self, eventId):
-        headers = self._headers
-
-        response = self._http_request("get", f"detections/{eventId}/pdf", headers=headers)
-
-        return response
 
     def retrieveeventscreenshotwitheventid_request(self, eventId):
         headers = self._headers
@@ -49,12 +43,6 @@ class Client(BaseClient):
 
         return response
 
-    def fetchtheticketdataandconverttopdf_request(self, ticketId):
-        headers = self._headers
-
-        response = self._http_request("get", f"takedowns/{ticketId}/pdf", headers=headers)
-
-        return response
 
     def gethtmlsourcecodeforaticket_request(self, ticketId):
         headers = self._headers
@@ -205,16 +193,6 @@ def controldetectionflowbyeventidandaction_command(client: Client, args: Dict[st
     return command_results
 
 
-def fetchthedetectiondataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    eventId = args.get("eventId", None)
-
-    response = client.fetchthedetectiondataandconverttopdf_request(eventId)
-    command_results = CommandResults(
-        outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
-    )
-
-    return command_results
-
 
 def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     ticketId = args.get("ticketId", None)
@@ -231,17 +209,6 @@ def fetchthescreenshotdatawithticketid_command(client: Client, args: Dict[str, A
     ticketId = args.get("ticketId", None)
 
     response = client.fetchthescreenshotdatawithticketid_request(ticketId)
-    command_results = CommandResults(
-        outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
-    )
-
-    return command_results
-
-
-def fetchtheticketdataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    ticketId = args.get("ticketId", None)
-
-    response = client.fetchtheticketdataandconverttopdf_request(ticketId)
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
     )
@@ -494,10 +461,8 @@ def main() -> None:
 
         commands = {
             "csc-controldetectionflowbyeventidandaction": controldetectionflowbyeventidandaction_command,
-            "csc-fetchthedetectiondataandconverttopdf": fetchthedetectiondataandconverttopdf_command,
             "csc-fetchthephishkitdatawithticketid": fetchthephishkitdatawithticketid_command,
             "csc-fetchthescreenshotdatawithticketid": fetchthescreenshotdatawithticketid_command,
-            "csc-fetchtheticketdataandconverttopdf": fetchtheticketdataandconverttopdf_command,
             "csc-gethtmlsourcecodeforaticket": gethtmlsourcecodeforaticket_command,
             "csc-getlistofbrands": getlistofbrands_command,
             "csc-getlistoffraudtypes": getlistoffraudtypes_command,

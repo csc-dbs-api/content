@@ -94,29 +94,6 @@ tasks:
     timertriggers: []
     ignoreworker: false
     skipunavailable: false
-  '4':
-    id: 4
-    taskid: '4'
-    type: regular
-    task:
-      id: '4'
-      version: -1
-      name: csctakedowns-fetchtheticketdataandconverttopdf
-      description: ''
-      script: Anti Fraud API|||csctakedowns-fetchtheticketdataandconverttopdf
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '5'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":800}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
   '5':
     id: '5'
     taskid: '5'

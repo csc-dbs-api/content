@@ -1,7 +1,0 @@
-{
-    "CSCTakedowns": {
-        "code": "Ref00-6656",
-        "message": "Event is not found in the application for ticketId: 123",
-          "status": "error"
-      }
-}

@@ -14,10 +14,6 @@ class Client(BaseClient):
         headers = self._headers
         return self._http_request("get", f"takedowns/{ticketId}/screenshot", headers=headers)
 
-    def fetchtheticketdataandconverttopdf_request(self, ticketId):
-        headers = self._headers
-        return self._http_request("get", f"takedowns/{ticketId}/pdf", headers=headers)
-
     def gethtmlsourcecodeforaticket_request(self, ticketId):
         headers = self._headers
         return self._http_request("get", f"takedowns/html/{ticketId}", headers=headers)
@@ -62,11 +58,6 @@ def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any
 
 def fetchthescreenshotdatawithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     response = client.fetchthescreenshotdatawithticketid_request(args.get("ticketId"))
-    return CommandResults(outputs_prefix="CSCTakedowns", outputs=response, raw_response=response)
-
-
-def fetchtheticketdataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    response = client.fetchtheticketdataandconverttopdf_request(args.get("ticketId"))
     return CommandResults(outputs_prefix="CSCTakedowns", outputs=response, raw_response=response)
 
 
@@ -141,7 +132,6 @@ def main() -> None:
         commands = {
             "csctakedowns-fetchthephishkitdatawithticketid": fetchthephishkitdatawithticketid_command,
             "csctakedowns-fetchthescreenshotdatawithticketid": fetchthescreenshotdatawithticketid_command,
-            "csctakedowns-fetchtheticketdataandconverttopdf": fetchtheticketdataandconverttopdf_command,
             "csctakedowns-gethtmlsourcecodeforaticket": gethtmlsourcecodeforaticket_command,
             "csctakedowns-listofworklogsforticketid": listofworklogsforticketid_command,
             "csctakedowns-listtakedownevents": listtakedownevents_command,
