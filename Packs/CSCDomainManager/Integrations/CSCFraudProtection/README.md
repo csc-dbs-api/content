@@ -241,17 +241,17 @@ List Takedown events with filters
 #### Input
 
 | **Argument Name** | **Description** | **Required** |
-| --- | --- | --- |
-| fromDate | Start date in YYYY-MM-DD format. | Required |
-| toDate | End date in YYYY--MM--DD format. | Required |
-| _andId | Filter by Brand Id. | Optional |
-| fraudType | Type of the Fraud. | Optional |
-| ticketStatus | Ticket Status. | Optional |
-| DetectionDate | Filter by Detection date. | Optional |
+|-------------------| --- | --- |
+| fromDate          | Start date in YYYY-MM-DD format. | Required |
+| toDate            | End date in YYYY--MM--DD format. | Required |
+| brandId           | Filter by Brand Id. | Optional |
+| fraudType         | Type of the Fraud. | Optional |
+| ticketStatus      | Ticket Status. | Optional |
+| DetectionDate     | Filter by Detection date. | Optional |
 | AuthorizationDate | Filter by Authorization date. | Optional |
-| CompletedDate | Filter by Closed date. | Optional |
-| page | page size. | Optional |
-| limit | Limit between 100 and 500, default = 100. | Optional |
+| CompletedDate     | Filter by Closed date. | Optional |
+| page              | page size. | Optional |
+| limit             | Limit between 100 and 500, default = 100. | Optional |
 
 #### Context Output
 
@@ -315,14 +315,14 @@ Retrieve filtered list of monitoring results within specified timeframe
 #### Input
 
 | **Argument Name** | **Description** | **Required** |
-| --- | --- | --- |
-| startDate | Filter by from date. Expected format: YYYY-MM-DD. | Required |
-| endDate | Filter by end date. Expected format: YYYY-MM-DD. | Required |
-| _andId | Filter by Brand Id. | Optional |
-| fraudType | Type of the Fraud. | Optional |
-| monitoringStatus | Monitoring Status. | Optional |
-| page | page size. | Optional |
-| limit | Limit between 100 and 500, default is 100. | Optional |
+|-------------------| --- | --- |
+| startDate         | Filter by from date. Expected format: YYYY-MM-DD. | Required |
+| endDate           | Filter by end date. Expected format: YYYY-MM-DD. | Required |
+| brandId           | Filter by Brand Id. | Optional |
+| fraudType         | Type of the Fraud. | Optional |
+| monitoringStatus  | Monitoring Status. | Optional |
+| page              | page size. | Optional |
+| limit             | Limit between 100 and 500, default is 100. | Optional |
 
 #### Context Output
 

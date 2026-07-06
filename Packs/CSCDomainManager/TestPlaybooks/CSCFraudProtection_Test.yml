@@ -105,29 +105,6 @@ tasks:
     timertriggers: []
     ignoreworker: false
     skipunavailable: false
-  '4':
-    id: 4
-    taskid: '4'
-    type: regular
-    task:
-      id: '4'
-      version: -1
-      name: csc-fetchthedetectiondataandconverttopdf
-      description: ''
-      script: Anti Fraud API|||csc-fetchthedetectiondataandconverttopdf
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '5'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":800}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
   '5':
     id: '5'
     taskid: '5'
@@ -204,29 +181,6 @@ tasks:
     scriptarguments: {}
     separatecontext: false
     view: '{"position":{"x":50,"y":1400}}'
-    note: false
-    timertriggers: []
-    ignoreworker: false
-    skipunavailable: false
-  '8':
-    id: 8
-    taskid: '8'
-    type: regular
-    task:
-      id: '8'
-      version: -1
-      name: csc-fetchtheticketdataandconverttopdf
-      description: ''
-      script: Anti Fraud API|||csc-fetchtheticketdataandconverttopdf
-      type: regular
-      iscommand: true
-      brand: ''
-    nexttasks:
-      '#none#':
-      - '9'
-    scriptarguments: {}
-    separatecontext: false
-    view: '{"position":{"x":50,"y":1600}}'
     note: false
     timertriggers: []
     ignoreworker: false

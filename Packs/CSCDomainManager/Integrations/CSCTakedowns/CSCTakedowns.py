@@ -14,10 +14,6 @@ class Client(BaseClient):
         headers = self._headers
         return self._http_request("get", f"takedowns/{ticketId}/screenshot", headers=headers)
 
-    def fetchtheticketdataandconverttopdf_request(self, ticketId):
-        headers = self._headers
-        return self._http_request("get", f"takedowns/{ticketId}/pdf", headers=headers)
-
     def gethtmlsourcecodeforaticket_request(self, ticketId):
         headers = self._headers
         return self._http_request("get", f"takedowns/html/{ticketId}", headers=headers)
@@ -32,12 +28,12 @@ class Client(BaseClient):
         return self._http_request("get", "takedowns/list", params=params, headers=headers)
 
     def listtakedowneventswithfilters_request(
-        self, fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        self, fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     ):
         params = assign_params(
             fromDate=fromDate,
             toDate=toDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             ticketStatus=ticketStatus,
             DetectionDate=DetectionDate,
@@ -65,11 +61,6 @@ def fetchthescreenshotdatawithticketid_command(client: Client, args: Dict[str, A
     return CommandResults(outputs_prefix="CSCTakedowns", outputs=response, raw_response=response)
 
 
-def fetchtheticketdataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    response = client.fetchtheticketdataandconverttopdf_request(args.get("ticketId"))
-    return CommandResults(outputs_prefix="CSCTakedowns", outputs=response, raw_response=response)
-
-
 def gethtmlsourcecodeforaticket_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     response = client.gethtmlsourcecodeforaticket_request(args.get("ticketId"))
     return CommandResults(outputs_prefix="CSCTakedowns", outputs=response, raw_response=response)
@@ -89,7 +80,7 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
     response = client.listtakedowneventswithfilters_request(
         args.get("fromDate"),
         args.get("toDate"),
-        args.get("_andId"),
+        args.get("brandId"),
         args.get("fraudType"),
         args.get("ticketStatus"),
         argToBoolean(args.get("DetectionDate", False)),
@@ -141,7 +132,6 @@ def main() -> None:
         commands = {
             "csctakedowns-fetchthephishkitdatawithticketid": fetchthephishkitdatawithticketid_command,
             "csctakedowns-fetchthescreenshotdatawithticketid": fetchthescreenshotdatawithticketid_command,
-            "csctakedowns-fetchtheticketdataandconverttopdf": fetchtheticketdataandconverttopdf_command,
             "csctakedowns-gethtmlsourcecodeforaticket": gethtmlsourcecodeforaticket_command,
             "csctakedowns-listofworklogsforticketid": listofworklogsforticketid_command,
             "csctakedowns-listtakedownevents": listtakedownevents_command,

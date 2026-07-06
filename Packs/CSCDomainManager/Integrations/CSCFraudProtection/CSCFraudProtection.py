@@ -21,12 +21,6 @@ class Client(BaseClient):
 
         return response
 
-    def fetchthedetectiondataandconverttopdf_request(self, eventId):
-        headers = self._headers
-
-        response = self._http_request("get", f"detections/{eventId}/pdf", headers=headers)
-
-        return response
 
     def retrieveeventscreenshotwitheventid_request(self, eventId):
         headers = self._headers
@@ -49,12 +43,6 @@ class Client(BaseClient):
 
         return response
 
-    def fetchtheticketdataandconverttopdf_request(self, ticketId):
-        headers = self._headers
-
-        response = self._http_request("get", f"takedowns/{ticketId}/pdf", headers=headers)
-
-        return response
 
     def gethtmlsourcecodeforaticket_request(self, ticketId):
         headers = self._headers
@@ -93,12 +81,12 @@ class Client(BaseClient):
         return response
 
     def listtakedowneventswithfilters_request(
-        self, fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        self, fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     ):
         params = assign_params(
             fromDate=fromDate,
             toDate=toDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             ticketStatus=ticketStatus,
             DetectionDate=DetectionDate,
@@ -114,12 +102,12 @@ class Client(BaseClient):
         return response
 
     def retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request(
-        self, startDate, endDate, _andId, fraudType, monitoringStatus, page, limit
+        self, startDate, endDate, brandId, fraudType, monitoringStatus, page, limit
     ):
         params = assign_params(
             startDate=startDate,
             endDate=endDate,
-            _andId=_andId,
+            brandId=brandId,
             fraudType=fraudType,
             monitoringStatus=monitoringStatus,
             page=page,
@@ -205,16 +193,6 @@ def controldetectionflowbyeventidandaction_command(client: Client, args: Dict[st
     return command_results
 
 
-def fetchthedetectiondataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    eventId = args.get("eventId", None)
-
-    response = client.fetchthedetectiondataandconverttopdf_request(eventId)
-    command_results = CommandResults(
-        outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
-    )
-
-    return command_results
-
 
 def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     ticketId = args.get("ticketId", None)
@@ -231,17 +209,6 @@ def fetchthescreenshotdatawithticketid_command(client: Client, args: Dict[str, A
     ticketId = args.get("ticketId", None)
 
     response = client.fetchthescreenshotdatawithticketid_request(ticketId)
-    command_results = CommandResults(
-        outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
-    )
-
-    return command_results
-
-
-def fetchtheticketdataandconverttopdf_command(client: Client, args: Dict[str, Any]) -> CommandResults:
-    ticketId = args.get("ticketId", None)
-
-    response = client.fetchtheticketdataandconverttopdf_request(ticketId)
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
     )
@@ -306,7 +273,7 @@ def listtakedownevents_command(client: Client, args: Dict[str, Any]) -> CommandR
 def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     fromDate = str(args.get("fromDate", ""))
     toDate = str(args.get("toDate", ""))
-    _andId = args.get("_andId", None)
+    brandId = args.get("brandId", None)
     fraudType = str(args.get("fraudType", ""))
     ticketStatus = str(args.get("ticketStatus", ""))
     DetectionDate = argToBoolean(args.get("DetectionDate", False))
@@ -316,7 +283,7 @@ def listtakedowneventswithfilters_command(client: Client, args: Dict[str, Any]) 
     limit = args.get("limit", None)
 
     response = client.listtakedowneventswithfilters_request(
-        fromDate, toDate, _andId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
+        fromDate, toDate, brandId, fraudType, ticketStatus, DetectionDate, AuthorizationDate, CompletedDate, page, limit
     )
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
@@ -367,14 +334,14 @@ def retrieveeventscreenshotwitheventid_command(client: Client, args: Dict[str, A
 def getfilteredlistofmonitoringresultsspecifiedtime_command(client: Client, args: Dict[str, Any]) -> CommandResults:
     startDate = str(args.get("startDate", ""))
     endDate = str(args.get("endDate", ""))
-    _andId = args.get("_andId", None)
+    brandId = args.get("brandId", None)
     fraudType = str(args.get("fraudType", ""))
     monitoringStatus = str(args.get("monitoringStatus", ""))
     page = args.get("page", None)
     limit = args.get("limit", None)
 
     response = client.retrievefilteredlistofmonitoringresultswithinspecifiedtimeframe_request(
-        startDate, endDate, _andId, fraudType, monitoringStatus, page, limit
+        startDate, endDate, brandId, fraudType, monitoringStatus, page, limit
     )
     command_results = CommandResults(
         outputs_prefix="CSCFraudProtection", outputs_key_field="", outputs=response, raw_response=response
@@ -494,10 +461,8 @@ def main() -> None:
 
         commands = {
             "csc-controldetectionflowbyeventidandaction": controldetectionflowbyeventidandaction_command,
-            "csc-fetchthedetectiondataandconverttopdf": fetchthedetectiondataandconverttopdf_command,
             "csc-fetchthephishkitdatawithticketid": fetchthephishkitdatawithticketid_command,
             "csc-fetchthescreenshotdatawithticketid": fetchthescreenshotdatawithticketid_command,
-            "csc-fetchtheticketdataandconverttopdf": fetchtheticketdataandconverttopdf_command,
             "csc-gethtmlsourcecodeforaticket": gethtmlsourcecodeforaticket_command,
             "csc-getlistofbrands": getlistofbrands_command,
             "csc-getlistoffraudtypes": getlistoffraudtypes_command,

@@ -5,7 +5,6 @@ from CSCTakedowns import (
     Client,
     fetchthephishkitdatawithticketid_command,
     fetchthescreenshotdatawithticketid_command,
-    fetchtheticketdataandconverttopdf_command,
     gethtmlsourcecodeforaticket_command,
     listofworklogsforticketid_command,
     listtakedownevents_command,
@@ -56,23 +55,6 @@ def test_fetchthescreenshotdatawithticketid_command(client, requests_mock):
     assert results.raw_response == mock_results["CSCTakedowns"]
 
 
-#
-def test_fetchtheticketdataandconverttopdf_command(client, requests_mock):
-    """
-    When:
-    Given:
-    Then:
-    """
-    args = {"ticketId": "123"}
-    mock_response_request = util_load_json("./test_data/fetchtheticketdataandconverttopdf_request.json")
-    mock_results = util_load_json("./test_data/fetchtheticketdataandconverttopdf_command.json")
-    requests_mock.get(f"{SERVER_URL}/takedowns/{args['ticketId']}/pdf", json=mock_response_request)
-    results = fetchtheticketdataandconverttopdf_command(client=client, args=args)
-    assert results.outputs_prefix == "CSCTakedowns"
-    assert results.raw_response == mock_results["CSCTakedowns"]
-
-
-#
 def test_gethtmlsourcecodeforaticket_command(client, requests_mock):
     """
     When:
