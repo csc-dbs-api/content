@@ -175,6 +175,7 @@ def test_getlistofmonitoringresultsspecifiedtime_command(client, requests_mock):
     assert results.outputs_prefix == "CSCFraudProtection"
     assert results.raw_response == mock_results["CSCFraudProtection"]
 
+
 def test_controldetectionflowbyeventidandaction_command(client, requests_mock):
     args = {"action": "OPEN"}
     mock_response = util_load_json("./test_data/controldetectionflowbyeventidandaction_request.json")

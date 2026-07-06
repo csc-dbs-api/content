@@ -21,7 +21,6 @@ class Client(BaseClient):
 
         return response
 
-
     def retrieveeventscreenshotwitheventid_request(self, eventId):
         headers = self._headers
 
@@ -42,7 +41,6 @@ class Client(BaseClient):
         response = self._http_request("get", f"takedowns/{ticketId}/screenshot", headers=headers)
 
         return response
-
 
     def gethtmlsourcecodeforaticket_request(self, ticketId):
         headers = self._headers
@@ -191,7 +189,6 @@ def controldetectionflowbyeventidandaction_command(client: Client, args: Dict[st
     )
 
     return command_results
-
 
 
 def fetchthephishkitdatawithticketid_command(client: Client, args: Dict[str, Any]) -> CommandResults:
